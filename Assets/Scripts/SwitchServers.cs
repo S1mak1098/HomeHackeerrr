@@ -169,7 +169,12 @@ public class SwitchServers : MonoBehaviour
         }
         
     }
-
+    public void DeleteSaves()
+    {
+        LevelBtnUpdate1 = 1;
+        UpdateBattery1();
+        PlayerPrefs.DeleteKey("LevelInt");
+    }
 
     public void NewBattery()
     {

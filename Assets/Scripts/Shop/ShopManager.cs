@@ -1,20 +1,27 @@
-﻿using System.Collections;
+﻿using System;
+using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.UI;
 
 public class ShopManager : MonoBehaviour
 {
+
+
     int CountPage;
-    public int Money;
+    public static int Money = 0;
     public Text countMoney;
 
-    public GameObject Page01;
-    public GameObject Page02;
-    public GameObject Page03;
-    public GameObject Page04;
-    public GameObject Page05;
-    public GameObject Page06;
+    public static Action<int> OnMoneyChange;
+
+    
+    
+    public GameObject Page01;//
+    public GameObject Page02;//
+    public GameObject Page03;//
+    public GameObject Page04;// Это нужно заменить на массивы.
+    public GameObject Page05;//
+    public GameObject Page06;//
 
 
     ////// первый блок пк///////////
@@ -42,22 +49,25 @@ public class ShopManager : MonoBehaviour
     public GameObject boughtPCText06;
 
 
-    public GameObject ServerLvl1;
-    public GameObject ServerLvl2;
-    public GameObject ServerLvl3;
+    public GameObject ServerLvl1;// Это нужно заменить на массивы.
+    public GameObject ServerLvl2;//
+    public GameObject ServerLvl3;//
 
 
-    public GameObject LVL_BTN1;
-    public GameObject LVL_BTN2;
-    public GameObject LVL_BTN3;
+    public GameObject LVL_BTN1;//
+    public GameObject LVL_BTN2;// Это нужно заменить на массивы.
+    public GameObject LVL_BTN3;//
+
+
+
     int LevelBtn;
 
-    int CheckPC01;
-    int CheckPC02;
-    int CheckPC03;
-    int CheckPC04;
-    int CheckPC05;
-    int CheckPC06;
+    int CheckPC01;//
+    int CheckPC02;//
+    int CheckPC03;//
+    int CheckPC04;// Это нужно заменить на массивы.
+    int CheckPC05;//
+    int CheckPC06;//
 
 
     // Start is called before the first frame update
@@ -67,6 +77,7 @@ public class ShopManager : MonoBehaviour
         countMoney.text = "" + Money;
         LevelBtn = PlayerPrefs.GetInt("CheckLevelServers");
 
+        //Заменить на цикл.
         if(PlayerPrefs.GetInt("CheckingPC01") == 1) // При старте сразу проверяет купленные пк
         {
             buyPCText01.SetActive(false);
@@ -98,7 +109,16 @@ public class ShopManager : MonoBehaviour
             boughtPCText06.SetActive(true);
         }
 
-        if(PlayerPrefs.GetInt("CheckLevelServers") == 0)
+        ///------Заменить на функцию, так как много повторений-------
+        ///       if(PlayerPrefs.GetInt("CheckLevelServers") == 0)
+        //{
+        //      Это заменить на цикл.
+        //    lvl_btn1.setactive(true);
+        //    lvl_btn2.setactive(false);
+        //    lvl_btn3.setactive(false);
+        //}
+        //
+        if (PlayerPrefs.GetInt("CheckLevelServers") == 0)
         {
             LVL_BTN1.SetActive(true);
             LVL_BTN2.SetActive(false);
@@ -130,6 +150,9 @@ public class ShopManager : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
+        //|------------------------------------------------
+        //| Заменить на событие, чтобы апдейт был пустой. |
+        //|------------------------------------------------
         if(CountPage == 0){
             Page01.SetActive(true);
             Page02.SetActive(false);
@@ -183,6 +206,9 @@ public class ShopManager : MonoBehaviour
             Page06.SetActive(true);
         }
     }
+
+
+    //Заменить на интерфейсы, что дальше делать, пока еще не придумал.
     public void BuyPC_01() { // Первый блок покупки пк
         Debug.Log("One PC");
         if(PlayerPrefs.GetInt("CheckingPC01") == 0 && Money >= 20000)
@@ -298,6 +324,7 @@ public class ShopManager : MonoBehaviour
             PlayerPrefs.SetInt("CheckingPC016", CheckPC06); // Сохранение переменной, отвечающий за проверку купленного пк
             buyPCText06.SetActive(false);
             boughtPCText06.SetActive(true);
+            OnMoneyChange?.Invoke(Money);
         }
 
         if(PlayerPrefs.GetInt("CheckingPC06") == 1) 
@@ -308,20 +335,18 @@ public class ShopManager : MonoBehaviour
     }
 
 
-
-
-    public void DeleteSaved() {
-
-        PlayerPrefs.DeleteAll();
+    public void MoneyChange(int CurrentMoney)
+    {
+        countMoney.text = "" + CurrentMoney;
+        PlayerPrefs.SetInt("AllMoney", CurrentMoney);
     }
 
-    public void ClickForMoney(){
+    public void ClickForMoney(int Money, Text countMoney)
+    {
         Money += 1000;
         PlayerPrefs.SetInt("AllMoney", Money);
         countMoney.text = "" + Money;
     }
-
-
     public void RightPage() // Следующая страница
     {
         if(CountPage < 5)
@@ -338,6 +363,7 @@ public class ShopManager : MonoBehaviour
         }   
     }
 
+    //Тожезаменить на интерфейсы
     public void LevelUpServers1()
     {
         if(Money >= 50000)
@@ -393,4 +419,17 @@ public class ShopManager : MonoBehaviour
             PlayerPrefs.SetInt("CheckLevelServers", LevelBtn);
         }
     }
+    private void OnEnable()
+    {
+        Money = PlayerPrefs.GetInt("AllMoney");
+        countMoney.text = "" + Money;
+        OnMoneyChange += MoneyChange;
+    }
+
+
+    private void OnDisable()
+    {
+        OnMoneyChange -= MoneyChange;
+    }
+    
 }

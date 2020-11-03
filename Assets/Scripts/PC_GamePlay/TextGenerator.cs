@@ -3,21 +3,24 @@ using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.UI;
 
+/// <summary>
+/// Компонент для вывода текста на экран компьютера
+/// </summary>
 public class TextGenerator : MonoBehaviour
 {
-    public AimBug aimBug;
-    public GraphKeyScript graphKey;
-    public FastBtnScript fastBug;
+    [SerializeField] private AimBug aimBug;
+    [SerializeField] private GraphKeyScript graphKey;
+    [SerializeField] private FastBtnScript fastBug;
 
+    private BugsManager BM;
+    [TextArea()] [SerializeField] private string text;
+    [SerializeField] private Text _Text;
 
-    // Start is called before the first frame update
-    [TextArea()]
-    public string text;
-    public Text _Text;
-    int i = 0;
     void Start()
     {
-        StartCoroutine(showText(text));        
+        BM = GetComponent<BugsManager>();
+        StartCoroutine(showText(text));
+
     }
 
     // Update is called once per frame
@@ -32,7 +35,7 @@ public class TextGenerator : MonoBehaviour
         while (i <= text.Length)
         {
 
-            if (Input.GetMouseButton(0) && aimBug.AimBugEn == false && graphKey.GraphBugEn == false && fastBug.FastBugEn == false)
+            if (Input.GetMouseButtonDown(0) && aimBug.AimBugEn == false && graphKey.GraphBugEn == false && fastBug.FastBugEn == false)
             {
                 //if (i - 150 > 0) { _Text.text = text.Substring(i-145); }
                 if (i < 300)
@@ -44,12 +47,15 @@ public class TextGenerator : MonoBehaviour
                     _Text.text = text.Substring(i - 295, i);
                 }
 
-  
+
 
                 i += 5;
+                float random = Random.Range(0.00f, 100f);
+                Debug.Log(random);
+                if (random < 10) { BM.RandomBugs(); }
             }
 
-            yield return new WaitForSeconds(0.05f);
+            yield return new WaitForSeconds(0.1f);
         }
     }
 }

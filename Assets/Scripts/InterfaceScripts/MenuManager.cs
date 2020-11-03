@@ -1,6 +1,7 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.UI;
 
 public class MenuManager : MonoBehaviour
 {
@@ -28,40 +29,43 @@ public class MenuManager : MonoBehaviour
     public GameObject TelephonBtn;
 
     [SerializeField] private GameObject MissionTel;
+
+
+    [SerializeField] private CameraChange cameraChange;
     void Start()
     {
-        
+
     }
 
     void Update()
     {
-        if(ShopPan.activeInHierarchy == true)
+        if (ShopPan.activeInHierarchy == true)
         {
             MissionTel.SetActive(false);
             SettingsPan.SetActive(false);
         }
 
-        if(MissionTel.activeInHierarchy == true)
+        if (MissionTel.activeInHierarchy == true)
         {
             ShopPan.SetActive(false);
             SettingsPan.SetActive(false);
         }
-        
-        if(SettingsPan.activeInHierarchy == true)
+
+        if (SettingsPan.activeInHierarchy == true)
         {
             MissionTel.SetActive(false);
             ShopPan.SetActive(false);
         }
 
 
-        if(ServerCamera.activeInHierarchy == false)
+        if (ServerCamera.activeInHierarchy == false)
         {
             ServersBtn.SetActive(true);
             HomeBtn.SetActive(false);
             ShopBtn.SetActive(true);
             TelephonBtn.SetActive(true);
         }
-        else if(ServerCamera.activeInHierarchy == true)
+        else if (ServerCamera.activeInHierarchy == true)
         {
             ServersBtn.SetActive(false);
             HomeBtn.SetActive(true);
@@ -69,19 +73,23 @@ public class MenuManager : MonoBehaviour
             TelephonBtn.SetActive(false);
         }
     }
-    public void ShopEnable() { //Включение и выключение магазина
+    public void ShopEnable()
+    { //Включение и выключение магазина
 
         ShopPan.SetActive(!ShopPan.activeSelf);
         SettingsPan.SetActive(false);
     }
 
-    public void SwitchServers_Rooms() { // Переключение серверной комнаты
+    public void SwitchServers_Rooms()
+    { // Переключение серверной комнаты
 
-        ServerCamera.SetActive(!ServerCamera.activeSelf);
-        UpdateServerPan.SetActive(!UpdateServerPan.activeSelf);
-        UpgradeBtnServer.SetActive(!UpgradeBtnServer.activeSelf);
+        // ServerCamera.SetActive(false);
+        UpdateServerPan.SetActive(true);
+        cameraChange.ChangeRoom(3);
+        //UpgradeBtnServer.SetActive(!UpgradeBtnServer.activeSelf);
     }
-    public void SettingsEnable() {
+    public void SettingsEnable()
+    {
 
         SettingsPan.SetActive(true);
         ShopPan.SetActive(false);
@@ -91,22 +99,25 @@ public class MenuManager : MonoBehaviour
         SettingsPan.SetActive(false);
 
     }
-    public void SwitchLanguage() {
+    public void SwitchLanguage()
+    {
         RusLang.SetActive(!RusLang.activeSelf);
         EngLang.SetActive(!EngLang.activeSelf);
     }
 
-    public void EnableDisableSound() {
+    public void EnableDisableSound()
+    {
         EnabledSound.SetActive(!EnabledSound.activeSelf);
         DisabledSound.SetActive(!DisabledSound.activeSelf);
     }
-    public void EnableDisableMusic() {
+    public void EnableDisableMusic()
+    {
         EnabledMusic.SetActive(!EnabledMusic.activeSelf);
         DisabledMusic.SetActive(!DisabledMusic.activeSelf);
     }
     public void WorkEnable()//Телефон с заказами
     {
-        if(MissionTel.activeSelf)
+        if (MissionTel.activeSelf)
         {
             MissionTel.SetActive(false);
         }
@@ -116,8 +127,27 @@ public class MenuManager : MonoBehaviour
         }
     }
 
+    public void DeleteSaved()
+    {
+
+        PlayerPrefs.DeleteAll();
+    }
     public void BackHome()
     {
-        ServerCamera.SetActive(false);
+
+        UpdateServerPan.SetActive(false);
+        cameraChange.ChangeRoom(0);// Переходим в первую комнату
+
+
     }
+    public void ClickForMoney()
+    {
+
+        ShopManager.Money += 1000;
+        PlayerPrefs.SetInt("AllMoney", ShopManager.Money);
+        ShopManager.OnMoneyChange?.Invoke(ShopManager.Money);
+    }
+
+
+
 }

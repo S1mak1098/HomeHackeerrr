@@ -12,7 +12,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 899c54efeace73346a0a16faa3afe726, type: 3}
   m_Name: Vignette
   m_EditorClassIdentifier: 
-  active: 1
+  active: 0
   m_AdvancedMode: 0
   color:
     m_OverrideState: 1
@@ -75,10 +75,10 @@ MonoBehaviour:
   m_AdvancedMode: 0
   shadows:
     m_OverrideState: 1
-    m_Value: {x: 0, y: 0.53004885, z: 1, w: 0.74157304}
+    m_Value: {x: 0.98279667, y: 1, z: 0.9854454, w: 0.26578075}
   midtones:
     m_OverrideState: 1
-    m_Value: {x: 0.9842508, y: 1, z: 0.9914803, w: 1}
+    m_Value: {x: 0.9842508, y: 1, z: 0.9914803, w: 0.33554822}
   highlights:
     m_OverrideState: 1
     m_Value: {x: 0.9878432, y: 0.9875787, z: 1, w: 1}
@@ -130,16 +130,16 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 221518ef91623a7438a71fef23660601, type: 3}
   m_Name: WhiteBalance
   m_EditorClassIdentifier: 
-  active: 1
+  active: 0
   m_AdvancedMode: 0
   temperature:
     m_OverrideState: 1
-    m_Value: 12
+    m_Value: 0
     min: -100
     max: 100
   tint:
     m_OverrideState: 1
-    m_Value: 11
+    m_Value: 0
     min: -100
     max: 100
 --- !u!114 &6423399733944278299
@@ -158,7 +158,7 @@ MonoBehaviour:
   m_AdvancedMode: 0
   postExposure:
     m_OverrideState: 1
-    m_Value: 1.15
+    m_Value: 2.3
   contrast:
     m_OverrideState: 1
     m_Value: 19
@@ -192,11 +192,11 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 97c23e3b12dc18c42a140437e53d3951, type: 3}
   m_Name: Tonemapping
   m_EditorClassIdentifier: 
-  active: 1
+  active: 0
   m_AdvancedMode: 0
   mode:
     m_OverrideState: 1
-    m_Value: 2
+    m_Value: 0
 --- !u!114 &8127800283485651073
 MonoBehaviour:
   m_ObjectHideFlags: 3
@@ -213,11 +213,11 @@ MonoBehaviour:
   m_AdvancedMode: 0
   threshold:
     m_OverrideState: 1
-    m_Value: 2.5
+    m_Value: 1
     min: 0
   intensity:
     m_OverrideState: 1
-    m_Value: 0.31
+    m_Value: 0.1
     min: 0
   scatter:
     m_OverrideState: 1
