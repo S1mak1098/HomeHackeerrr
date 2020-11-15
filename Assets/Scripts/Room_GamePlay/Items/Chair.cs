@@ -3,6 +3,10 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
+/// <summary>
+/// Реалиция предмета стула
+/// чтобы понять как работает,смотри класс Bed.cs
+/// </summary>
 public class Chair : Item,IBaseItem
 {
     public void Choose()
@@ -19,6 +23,7 @@ public class Chair : Item,IBaseItem
     void Start()
     {
         item = this;
+        select.Init(gameObject);
     }
 
     // Update is called once per frame

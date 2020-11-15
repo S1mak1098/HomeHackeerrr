@@ -8,11 +8,10 @@ using UnityEngine;
 /// </summary>
 public class ChooseSystem : MonoBehaviour
 {
-    [SerializeField] private ChooseItemData Data;//Все предметы на которыеможно тыкать в игре.
+    [SerializeField] private ChooseItemData Data;//Все предметы на которые можно тыкать в игре.
 
 
     private Item activeItem;//Предмет на который тыкнули, тоесть активный.
-
 
     void Start()
     {
@@ -23,12 +22,19 @@ public class ChooseSystem : MonoBehaviour
 
     void Update()
     {
-        
+
     }
 
     void SelectedItem(Item item)
     {
+
+
+        for (int i = 0; i < Data.items.Length; i++)
+        {
+            Data.items[i].select.SetDefaultMarerial();
+        }
         activeItem = item;
-        activeItem.item.Choose();
+        activeItem.item.Choose();//Сообщаем предмету, что его выбрали.
+        activeItem.select.Change();
     }
 }
