@@ -146,9 +146,71 @@ public class ShopManager : MonoBehaviour
             LVL_BTN3.SetActive(false);
         }
     }
+    public void TestEvents()
+    {
+        switch (CountPage)
+        {
+            
+            case 0:
+                Page01.SetActive(true);
+                Page02.SetActive(false);
+                Page03.SetActive(false);
+                Page04.SetActive(false);
+                Page05.SetActive(false);
+                Page06.SetActive(false);
+                break;
 
+            case 1:
+                Page01.SetActive(false);
+                Page02.SetActive(true);
+                Page03.SetActive(false);
+                Page04.SetActive(false);
+                Page05.SetActive(false);
+                Page06.SetActive(false);
+                break;
+            case 2:
+                Page01.SetActive(false);
+                Page02.SetActive(false);
+                Page04.SetActive(true);
+                Page05.SetActive(false);
+                Page06.SetActive(false);
+                break;
+            case 3:
+                Page01.SetActive(false);
+                Page02.SetActive(false);
+                Page03.SetActive(false);
+                Page04.SetActive(true);
+                Page05.SetActive(false);
+                Page06.SetActive(false);
+                break;
+            case 4:
+                Page01.SetActive(false);
+                Page02.SetActive(false);
+                Page03.SetActive(false);
+                Page04.SetActive(false);
+                Page05.SetActive(true);
+                Page06.SetActive(false);
+                break;
+            case 5:
+                Page01.SetActive(false);
+                Page02.SetActive(false);
+                Page03.SetActive(false);
+                Page04.SetActive(false);
+                Page05.SetActive(false);
+                Page06.SetActive(true);
+                break;
+
+            default:
+                Debug.Log("Fucksdsese");
+                break;
+        }
+    }
+    private void Update()
+    {
+        TestEvents();
+    }
     // Update is called once per frame
-    void Update()
+   /* void Update()
     {
         //|------------------------------------------------
         //| Заменить на событие, чтобы апдейт был пустой. |
@@ -205,7 +267,7 @@ public class ShopManager : MonoBehaviour
             Page05.SetActive(false);
             Page06.SetActive(true);
         }
-    }
+    }*/
 
 
     //Заменить на интерфейсы, что дальше делать, пока еще не придумал.
