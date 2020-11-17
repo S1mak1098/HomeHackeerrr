@@ -15,13 +15,7 @@ public class ShopManager : MonoBehaviour
     public static Action<int> OnMoneyChange;
 
     
-    
-    public GameObject Page01;//
-    public GameObject Page02;//
-    public GameObject Page03;//
-    public GameObject Page04;// Это нужно заменить на массивы.
-    public GameObject Page05;//
-    public GameObject Page06;//
+    public GameObject[] AllPages;
 
 
     ////// первый блок пк///////////
@@ -47,16 +41,6 @@ public class ShopManager : MonoBehaviour
     ////// шестой блок пк///////////
     public GameObject buyPCText06;
     public GameObject boughtPCText06;
-
-
-    public GameObject ServerLvl1;// Это нужно заменить на массивы.
-    public GameObject ServerLvl2;//
-    public GameObject ServerLvl3;//
-
-
-    public GameObject LVL_BTN1;//
-    public GameObject LVL_BTN2;// Это нужно заменить на массивы.
-    public GameObject LVL_BTN3;//
 
 
 
@@ -108,43 +92,7 @@ public class ShopManager : MonoBehaviour
             buyPCText06.SetActive(false);
             boughtPCText06.SetActive(true);
         }
-
-        ///------Заменить на функцию, так как много повторений-------
-        ///       if(PlayerPrefs.GetInt("CheckLevelServers") == 0)
-        //{
-        //      Это заменить на цикл.
-        //    lvl_btn1.setactive(true);
-        //    lvl_btn2.setactive(false);
-        //    lvl_btn3.setactive(false);
-        //}
-        //
-        if (PlayerPrefs.GetInt("CheckLevelServers") == 0)
-        {
-            LVL_BTN1.SetActive(true);
-            LVL_BTN2.SetActive(false);
-            LVL_BTN3.SetActive(false);
-        }
-
-        if(PlayerPrefs.GetInt("CheckLevelServers") == 1)
-        {
-            LVL_BTN1.SetActive(false);
-            LVL_BTN2.SetActive(true);
-            LVL_BTN3.SetActive(false);
-        }
-
-        if(PlayerPrefs.GetInt("CheckLevelServers") == 2)
-        {
-            LVL_BTN1.SetActive(false);
-            LVL_BTN2.SetActive(false);
-            LVL_BTN3.SetActive(true);
-        }
-
-        if(PlayerPrefs.GetInt("CheckLevelServers") == 3)
-        {
-            LVL_BTN1.SetActive(false);
-            LVL_BTN2.SetActive(false);
-            LVL_BTN3.SetActive(false);
-        }
+        
     }
     public void TestEvents()
     {
@@ -152,52 +100,53 @@ public class ShopManager : MonoBehaviour
         {
             
             case 0:
-                Page01.SetActive(true);
-                Page02.SetActive(false);
-                Page03.SetActive(false);
-                Page04.SetActive(false);
-                Page05.SetActive(false);
-                Page06.SetActive(false);
+                AllPages[0].SetActive(true);
+                AllPages[1].SetActive(false);
+                AllPages[2].SetActive(false);
+                AllPages[3].SetActive(false);
+                AllPages[4].SetActive(false);
+                AllPages[5].SetActive(false);
                 break;
 
             case 1:
-                Page01.SetActive(false);
-                Page02.SetActive(true);
-                Page03.SetActive(false);
-                Page04.SetActive(false);
-                Page05.SetActive(false);
-                Page06.SetActive(false);
+                AllPages[0].SetActive(false);
+                AllPages[1].SetActive(true);
+                AllPages[2].SetActive(false);
+                AllPages[3].SetActive(false);
+                AllPages[4].SetActive(false);
+                AllPages[5].SetActive(false);
                 break;
             case 2:
-                Page01.SetActive(false);
-                Page02.SetActive(false);
-                Page04.SetActive(true);
-                Page05.SetActive(false);
-                Page06.SetActive(false);
+                AllPages[0].SetActive(false);
+                AllPages[1].SetActive(false);
+                AllPages[2].SetActive(true);
+                AllPages[3].SetActive(false);
+                AllPages[4].SetActive(false);
+                AllPages[5].SetActive(false);
                 break;
             case 3:
-                Page01.SetActive(false);
-                Page02.SetActive(false);
-                Page03.SetActive(false);
-                Page04.SetActive(true);
-                Page05.SetActive(false);
-                Page06.SetActive(false);
+                AllPages[0].SetActive(false);
+                AllPages[1].SetActive(false);
+                AllPages[2].SetActive(false);
+                AllPages[3].SetActive(true);
+                AllPages[4].SetActive(false);
+                AllPages[5].SetActive(false);
                 break;
             case 4:
-                Page01.SetActive(false);
-                Page02.SetActive(false);
-                Page03.SetActive(false);
-                Page04.SetActive(false);
-                Page05.SetActive(true);
-                Page06.SetActive(false);
+                AllPages[0].SetActive(false);
+                AllPages[1].SetActive(false);
+                AllPages[2].SetActive(false);
+                AllPages[3].SetActive(false);
+                AllPages[4].SetActive(true);
+                AllPages[5].SetActive(false);
                 break;
             case 5:
-                Page01.SetActive(false);
-                Page02.SetActive(false);
-                Page03.SetActive(false);
-                Page04.SetActive(false);
-                Page05.SetActive(false);
-                Page06.SetActive(true);
+                AllPages[0].SetActive(false);
+                AllPages[1].SetActive(false);
+                AllPages[2].SetActive(false);
+                AllPages[3].SetActive(false);
+                AllPages[4].SetActive(false);
+                AllPages[5].SetActive(true);
                 break;
 
             default:
@@ -209,66 +158,8 @@ public class ShopManager : MonoBehaviour
     {
         TestEvents();
     }
-    // Update is called once per frame
-   /* void Update()
-    {
-        //|------------------------------------------------
-        //| Заменить на событие, чтобы апдейт был пустой. |
-        //|------------------------------------------------
-        if(CountPage == 0){
-            Page01.SetActive(true);
-            Page02.SetActive(false);
-            Page03.SetActive(false);
-            Page04.SetActive(false);
-            Page05.SetActive(false);
-            Page06.SetActive(false);
-        }
-        if(CountPage == 1){
-            Page01.SetActive(false);
-            Page02.SetActive(true);
-            Page03.SetActive(false);
-            Page04.SetActive(false);
-            Page05.SetActive(false);
-            Page06.SetActive(false);
-        }
-        if(CountPage == 2){
-            Page01.SetActive(false);
-            Page02.SetActive(false);
-            Page03.SetActive(true);
-            Page04.SetActive(false);
-            Page05.SetActive(false);
-            Page06.SetActive(false);
-
-        }
-
-        if(CountPage == 3){
-            Page01.SetActive(false);
-            Page02.SetActive(false);
-            Page03.SetActive(false);
-            Page04.SetActive(true);
-            Page05.SetActive(false);
-            Page06.SetActive(false);
-        }
-
-        if(CountPage == 4){
-            Page01.SetActive(false);
-            Page02.SetActive(false);
-            Page03.SetActive(false);
-            Page04.SetActive(false);
-            Page05.SetActive(true);
-            Page06.SetActive(false);
-        }
-
-        if(CountPage == 5){
-            Page01.SetActive(false);
-            Page02.SetActive(false);
-            Page03.SetActive(false);
-            Page04.SetActive(false);
-            Page05.SetActive(false);
-            Page06.SetActive(true);
-        }
-    }*/
-
+    
+ 
 
     //Заменить на интерфейсы, что дальше делать, пока еще не придумал.
     public void BuyPC_01() { // Первый блок покупки пк
@@ -409,6 +300,7 @@ public class ShopManager : MonoBehaviour
         PlayerPrefs.SetInt("AllMoney", Money);
         countMoney.text = "" + Money;
     }
+
     public void RightPage() // Следующая страница
     {
         if(CountPage < 5)
@@ -425,62 +317,6 @@ public class ShopManager : MonoBehaviour
         }   
     }
 
-    //Тожезаменить на интерфейсы
-    public void LevelUpServers1()
-    {
-        if(Money >= 50000)
-        {
-            Money -= 50000;
-            countMoney.text = "" + Money;
-            PlayerPrefs.SetInt("AllMoney", Money);
-            
-            ServerLvl1.SetActive(true);
-
-            LVL_BTN1.SetActive(false);
-            LVL_BTN2.SetActive(true);
-
-            LevelBtn = 1;
-            PlayerPrefs.SetInt("CheckLevelServers", LevelBtn);
-        }
-    }
-    public void LevelUpServers2()
-    {
-        if(Money >= 100000)
-        {
-            Money -= 100000;
-            countMoney.text = "" + Money;
-            PlayerPrefs.SetInt("AllMoney", Money);
-           
-            ServerLvl1.SetActive(false);
-            ServerLvl2.SetActive(true);
-
-            LVL_BTN2.SetActive(false);
-            LVL_BTN3.SetActive(true);
-
-
-            LevelBtn = 2;
-            PlayerPrefs.SetInt("CheckLevelServers", LevelBtn);
-        }
-    }
-
-    public void LevelUpServers3()
-    {
-        if(Money >= 150000)
-        {
-            Money -= 150000;
-            countMoney.text = "" + Money;
-            PlayerPrefs.SetInt("AllMoney", Money);
-           
-            ServerLvl2.SetActive(false);
-            ServerLvl3.SetActive(true);
-
-            LVL_BTN3.SetActive(false);
-
-
-            LevelBtn = 3;
-            PlayerPrefs.SetInt("CheckLevelServers", LevelBtn);
-        }
-    }
     private void OnEnable()
     {
         Money = PlayerPrefs.GetInt("AllMoney");
