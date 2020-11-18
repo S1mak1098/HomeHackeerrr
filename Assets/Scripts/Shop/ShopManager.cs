@@ -7,7 +7,7 @@ using UnityEngine.UI;
 public class ShopManager : MonoBehaviour
 {
 
-
+    int LevelBtn;
     int CountPage;
     public static int Money = 0;
     public Text countMoney;
@@ -15,9 +15,9 @@ public class ShopManager : MonoBehaviour
     public static Action<int> OnMoneyChange;
 
     
-    public GameObject[] AllPages;
+    
 
-
+    [Header("Others Buttons")]
     ////// первый блок пк///////////
     public GameObject buyPCText01;
     public GameObject boughtPCText01;
@@ -42,16 +42,11 @@ public class ShopManager : MonoBehaviour
     public GameObject buyPCText06;
     public GameObject boughtPCText06;
 
+    [Header("Arrays")]
+    public GameObject[] AllPages;
+    public int[] CheckingPc;
 
-
-    int LevelBtn;
-
-    int CheckPC01;//
-    int CheckPC02;//
-    int CheckPC03;//
-    int CheckPC04;// Это нужно заменить на массивы.
-    int CheckPC05;//
-    int CheckPC06;//
+    
 
 
     // Start is called before the first frame update
@@ -60,45 +55,36 @@ public class ShopManager : MonoBehaviour
         Money = PlayerPrefs.GetInt("AllMoney");
         countMoney.text = "" + Money;
         LevelBtn = PlayerPrefs.GetInt("CheckLevelServers");
-
-        //Заменить на цикл.
-        if(PlayerPrefs.GetInt("CheckingPC01") == 1) // При старте сразу проверяет купленные пк
-        {
-            buyPCText01.SetActive(false);
-            boughtPCText01.SetActive(true);
-        }
-        if(PlayerPrefs.GetInt("CheckingPC02") == 1) // При старте сразу проверяет купленные пк
-        {
-            buyPCText02.SetActive(false);
-            boughtPCText02.SetActive(true);
-        }
-        if(PlayerPrefs.GetInt("CheckingPC03") == 1) // При старте сразу проверяет купленные пк
-        {
-            buyPCText03.SetActive(false);
-            boughtPCText03.SetActive(true);
-        }
-        if(PlayerPrefs.GetInt("CheckingPC04") == 1) // При старте сразу проверяет купленные пк
-        {
-            buyPCText04.SetActive(false);
-            boughtPCText04.SetActive(true);
-        }
-        if(PlayerPrefs.GetInt("CheckingPC05") == 1) // При старте сразу проверяет купленные пк
-        {
-            buyPCText05.SetActive(false);
-            boughtPCText05.SetActive(true);
-        }
-        if(PlayerPrefs.GetInt("CheckingPC06") == 1) // При старте сразу проверяет купленные пк
-        {
-            buyPCText06.SetActive(false);
-            boughtPCText06.SetActive(true);
-        }
         
-    }
-    public void TestEvents()
-    {
-        switch (CountPage)
+
+        CheckingPc[0] = PlayerPrefs.GetInt("CheckingPC01");   // 
+        CheckingPc[1] = PlayerPrefs.GetInt("CheckingPC02");   //  
+        CheckingPc[2] = PlayerPrefs.GetInt("CheckingPC03");   //
+                                                              // >      НАЗНАЧЕНИЕ ЭЛЕМЕНТАМ МАССИВА СОХРАННЕНЫЕ ДАННЫЕ 
+        CheckingPc[3] = PlayerPrefs.GetInt("CheckingPC04");   //
+        CheckingPc[4] = PlayerPrefs.GetInt("CheckingPC05");   //
+        CheckingPc[5] = PlayerPrefs.GetInt("CheckingPC06");   //
+
+        for (int i = 0; i <= 6; i++)   // ПРОВЕРКА НА КУПЛЕННЫЕ ПК
         {
-            
+            if(CheckingPc[i] == 1)
+            {
+                if(i == 0) { buyPCText01.SetActive(false); boughtPCText01.SetActive(true); }
+                if(i == 1) { buyPCText02.SetActive(false); boughtPCText02.SetActive(true); }
+                if(i == 2) { buyPCText03.SetActive(false); boughtPCText03.SetActive(true); }
+                if(i == 3) { buyPCText04.SetActive(false); boughtPCText04.SetActive(true); }
+                if(i == 4) { buyPCText05.SetActive(false); boughtPCText05.SetActive(true); }
+                if(i == 5) { buyPCText06.SetActive(false); boughtPCText06.SetActive(true); }
+            }
+        }
+      
+    }
+
+
+    private void SwitcherPages()  
+    {
+        switch (CountPage)   
+        {
             case 0:
                 AllPages[0].SetActive(true);
                 AllPages[1].SetActive(false);
@@ -113,7 +99,7 @@ public class ShopManager : MonoBehaviour
                 AllPages[1].SetActive(true);
                 AllPages[2].SetActive(false);
                 AllPages[3].SetActive(false);
-                AllPages[4].SetActive(false);
+                AllPages[4].SetActive(false);           // ПЕРЕКЛЮЧЕНИЕ СТРАНИЦ МАГАЗИНА
                 AllPages[5].SetActive(false);
                 break;
             case 2:
@@ -154,23 +140,31 @@ public class ShopManager : MonoBehaviour
                 break;
         }
     }
+
+
+
     private void Update()
     {
-        TestEvents();
+        SwitcherPages();
     }
     
  
 
     //Заменить на интерфейсы, что дальше делать, пока еще не придумал.
+
+
     public void BuyPC_01() { // Первый блок покупки пк
-        Debug.Log("One PC");
+
         if(PlayerPrefs.GetInt("CheckingPC01") == 0 && Money >= 20000)
         {
             Money -= 20000; // Цена за покупку
-            CheckPC01 = 1;
+            
             countMoney.text = "" + Money; // Вывод кол-во бабла на экран
             PlayerPrefs.SetInt("AllMoney", Money); // Сохранение кол-во бабла
-            PlayerPrefs.SetInt("CheckingPC01", CheckPC01); // Сохранение переменной, отвечающий за проверку купленного пк
+           
+            CheckingPc[0] = 1;
+            PlayerPrefs.SetInt("CheckingPC01", CheckingPc[0]);
+
             buyPCText01.SetActive(false);
             boughtPCText01.SetActive(true);
         }
@@ -187,10 +181,13 @@ public class ShopManager : MonoBehaviour
         if(PlayerPrefs.GetInt("CheckingPC02") == 0 && Money >= 60000)
         {
             Money -= 60000; // Цена за покупку
-            CheckPC02 = 1;
+           
             countMoney.text = "" + Money; // Вывод кол-во бабла на экран
             PlayerPrefs.SetInt("AllMoney", Money); // Сохранение кол-во бабла
-            PlayerPrefs.SetInt("CheckingPC02", CheckPC02); // Сохранение переменной, отвечающий за проверку купленного пк
+            
+            CheckingPc[1] = 1;
+            PlayerPrefs.SetInt("CheckingPC02", CheckingPc[1]);
+
             buyPCText02.SetActive(false);
             boughtPCText02.SetActive(true);
         }
@@ -207,10 +204,13 @@ public class ShopManager : MonoBehaviour
         if(PlayerPrefs.GetInt("CheckingPC03") == 0 && Money >= 180000)
         {
             Money -= 180000; // Цена за покупку
-            CheckPC03 = 1;
+            
             countMoney.text = "" + Money; // Вывод кол-во бабла на экран
             PlayerPrefs.SetInt("AllMoney", Money); // Сохранение кол-во бабла
-            PlayerPrefs.SetInt("CheckingPC03", CheckPC03); // Сохранение переменной, отвечающий за проверку купленного пк
+            
+            CheckingPc[2] = 1;
+            PlayerPrefs.SetInt("CheckingPC03", CheckingPc[2]);
+
             buyPCText03.SetActive(false);
             boughtPCText03.SetActive(true);
         }
@@ -228,10 +228,13 @@ public class ShopManager : MonoBehaviour
         if(PlayerPrefs.GetInt("CheckingPC04") == 0 && Money >= 540000)
         {
             Money -= 540000; // Цена за покупку
-            CheckPC04 = 1;
+            
             countMoney.text = "" + Money; // Вывод кол-во бабла на экран
             PlayerPrefs.SetInt("AllMoney", Money); // Сохранение кол-во бабла
-            PlayerPrefs.SetInt("CheckingPC04", CheckPC04); // Сохранение переменной, отвечающий за проверку купленного пк
+        
+            CheckingPc[3] = 1;
+            PlayerPrefs.SetInt("CheckingPC04", CheckingPc[3]);
+
             buyPCText04.SetActive(false);
             boughtPCText04.SetActive(true);
         }
@@ -249,10 +252,12 @@ public class ShopManager : MonoBehaviour
         if(PlayerPrefs.GetInt("CheckingPC05") == 0 && Money >= 1200000)
         {
             Money -= 1200000; // Цена за покупку
-            CheckPC05 = 1;
+           
             countMoney.text = "" + Money; // Вывод кол-во бабла на экран
             PlayerPrefs.SetInt("AllMoney", Money); // Сохранение кол-во бабла
-            PlayerPrefs.SetInt("CheckingPC05", CheckPC05); // Сохранение переменной, отвечающий за проверку купленного пк
+            
+            CheckingPc[4] = 1;
+            PlayerPrefs.SetInt("CheckingPC05", CheckingPc[4]);
             buyPCText05.SetActive(false);
             boughtPCText05.SetActive(true);
         }
@@ -271,12 +276,16 @@ public class ShopManager : MonoBehaviour
         if(PlayerPrefs.GetInt("CheckingPC06") == 0 && Money >= 3600000)
         {
             Money -= 3600000; // Цена за покупку
-            CheckPC06 = 1;
+            
             countMoney.text = "" + Money; // Вывод кол-во бабла на экран
             PlayerPrefs.SetInt("AllMoney", Money); // Сохранение кол-во бабла
-            PlayerPrefs.SetInt("CheckingPC016", CheckPC06); // Сохранение переменной, отвечающий за проверку купленного пк
+           
+            CheckingPc[5] = 1;
+            PlayerPrefs.SetInt("CheckingPC06", CheckingPc[5]);
+
             buyPCText06.SetActive(false);
             boughtPCText06.SetActive(true);
+
             OnMoneyChange?.Invoke(Money);
         }
 
@@ -287,7 +296,7 @@ public class ShopManager : MonoBehaviour
         }
     }
 
-
+    //------------------------------------------------------------------МЕЛКИЕ МЕТОДЫ-----------------------------------------------------------------//
     public void MoneyChange(int CurrentMoney)
     {
         countMoney.text = "" + CurrentMoney;

@@ -35,7 +35,7 @@ public class TextGenerator : MonoBehaviour
         while (i <= text.Length)
         {
 
-            if (Input.GetMouseButtonDown(0) && aimBug.AimBugEn == false && graphKey.GraphBugEn == false && fastBug.FastBugEn == false)
+            if (Input.GetMouseButtonDown(0) && aimBug.AimBugEn == false && graphKey.GraphBugEn == false && fastBug.FastBugEn == false && GameObject.Find("PcCamera").GetComponent<Camera>().enabled == true)
             {
                 //if (i - 150 > 0) { _Text.text = text.Substring(i-145); }
                 if (i < 300)

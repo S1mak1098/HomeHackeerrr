@@ -23,13 +23,51 @@ public class ProfileManager : MonoBehaviour
         InputName = PlayerPrefs.GetString("PlayerName");
         ProfileName.text = "" + InputName;
         
-        if(ChoosedAvatar == 1)
+        switch (ChoosedAvatar)
         {
-            Avatar_1.SetActive(true);
-            Avatar_2.SetActive(false);
-            Avatar_3.SetActive(false);
-            Avatar_4.SetActive(false);
-            Avatar_5.SetActive(false);
+            case 1:
+                Avatar_1.SetActive(true);
+                Avatar_2.SetActive(false);
+                Avatar_3.SetActive(false);
+                Avatar_4.SetActive(false);
+                Avatar_5.SetActive(false);
+                break;
+            case 2:
+                Avatar_1.SetActive(false);
+                Avatar_2.SetActive(false);
+                Avatar_3.SetActive(true);
+                Avatar_4.SetActive(false);
+                Avatar_5.SetActive(false);
+                break;
+            case 3:
+                Avatar_1.SetActive(false);
+                Avatar_2.SetActive(false);
+                Avatar_3.SetActive(false);
+                Avatar_4.SetActive(true);
+                Avatar_5.SetActive(false);
+                break;
+            case 4:
+                Avatar_1.SetActive(false);
+                Avatar_2.SetActive(false);
+                Avatar_3.SetActive(false);
+                Avatar_4.SetActive(true);
+                Avatar_5.SetActive(false);
+                break;
+            case 5:
+                Avatar_1.SetActive(false);
+                Avatar_2.SetActive(false);
+                Avatar_3.SetActive(false);
+                Avatar_4.SetActive(false);
+                Avatar_5.SetActive(true);
+                break;
+            default:
+                Debug.Log("Def");
+                break;
+        }
+        
+        /*if(ChoosedAvatar == 1)
+        {
+
         }
 
         if(ChoosedAvatar == 2)
@@ -67,6 +105,7 @@ public class ProfileManager : MonoBehaviour
             Avatar_4.SetActive(false);
             Avatar_5.SetActive(true);
         }
+        */
     }
 
 }
