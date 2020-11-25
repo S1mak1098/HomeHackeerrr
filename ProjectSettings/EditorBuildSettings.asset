@@ -9,6 +9,9 @@ EditorBuildSettings:
     path: Assets/Scenes/RegisterNewPlayer.unity
     guid: 1f2cc1283213bb64f8fe11d7d77b9da7
   - enabled: 1
-    path: Assets/Scenes/Lvl1.unity
+    path: Assets/Scenes/GameScene.unity
     guid: 9fc0d4010bbf28b4594072e72b8655ab
+  - enabled: 1
+    path: Assets/Scenes/Fortune.unity
+    guid: 69cdb19522fa6f8478dcda25b4c6ae8c
   m_configObjects: {}

@@ -1,0 +1,352 @@
+fileFormatVersion: 2
+guid: 593a7eab39ae686449b099a2cc6b7b73
+ModelImporter:
+  serializedVersion: 19301
+  internalIDToNameTable: []
+  externalObjects:
+  - first:
+      type: UnityEngine:Material
+      assembly: UnityEngine.CoreModule
+      name: No Name
+    second: {fileID: 2100000, guid: 657d76fcb70b8df49818ae4e931ff54f, type: 2}
+  - first:
+      type: UnityEngine:Material
+      assembly: UnityEngine.CoreModule
+      name: batareia
+    second: {fileID: 2100000, guid: c6b0163b116a6e54cae14b74000d6169, type: 2}
+  - first:
+      type: UnityEngine:Material
+      assembly: UnityEngine.CoreModule
+      name: batareia dark
+    second: {fileID: 2100000, guid: 4ba8216103185c242be08d438d2493f1, type: 2}
+  - first:
+      type: UnityEngine:Material
+      assembly: UnityEngine.CoreModule
+      name: batareia red
+    second: {fileID: 2100000, guid: 83d3c462f3c1f424ca95f1b26323e0b0, type: 2}
+  - first:
+      type: UnityEngine:Material
+      assembly: UnityEngine.CoreModule
+      name: bootton
+    second: {fileID: 2100000, guid: 483349bf298bd914388a5d1d9ae45bb8, type: 2}
+  - first:
+      type: UnityEngine:Material
+      assembly: UnityEngine.CoreModule
+      name: button
+    second: {fileID: 2100000, guid: 2a181f77fe25bb6478767fa83c92e146, type: 2}
+  - first:
+      type: UnityEngine:Material
+      assembly: UnityEngine.CoreModule
+      name: button 2
+    second: {fileID: 2100000, guid: 13a8b32bb7ce08f43820f6fd62f9b07d, type: 2}
+  - first:
+      type: UnityEngine:Material
+      assembly: UnityEngine.CoreModule
+      name: cactus
+    second: {fileID: 2100000, guid: ab3a40cfccc0c454291c8fac650cbba0, type: 2}
+  - first:
+      type: UnityEngine:Material
+      assembly: UnityEngine.CoreModule
+      name: cactus gorsoc
+    second: {fileID: 2100000, guid: f3f85c2efbaa6fe4aba2db625810b4ae, type: 2}
+  - first:
+      type: UnityEngine:Material
+      assembly: UnityEngine.CoreModule
+      name: cactus zemlia
+    second: {fileID: 2100000, guid: 80afce5504a303147b06e53e8c2c9613, type: 2}
+  - first:
+      type: UnityEngine:Material
+      assembly: UnityEngine.CoreModule
+      name: catus pink
+    second: {fileID: 2100000, guid: 34f22a4d589661940825faa1893845ed, type: 2}
+  - first:
+      type: UnityEngine:Material
+      assembly: UnityEngine.CoreModule
+      name: cisi
+    second: {fileID: 2100000, guid: 608a8f406b0a5374eabbf1a8e04e9f22, type: 2}
+  - first:
+      type: UnityEngine:Material
+      assembly: UnityEngine.CoreModule
+      name: cisi dark
+    second: {fileID: 2100000, guid: 129998085361562498bb03065656ac81, type: 2}
+  - first:
+      type: UnityEngine:Material
+      assembly: UnityEngine.CoreModule
+      name: cisi strelka
+    second: {fileID: 2100000, guid: c3ddd319f17d0654cb0f7b7363155f44, type: 2}
+  - first:
+      type: UnityEngine:Material
+      assembly: UnityEngine.CoreModule
+      name: cisi strelka dark
+    second: {fileID: 2100000, guid: 92a43ce386bfb244285e6f65e911fa3c, type: 2}
+  - first:
+      type: UnityEngine:Material
+      assembly: UnityEngine.CoreModule
+      name: clava 1
+    second: {fileID: 2100000, guid: 6834ada94115f17429cd21dc2cf8d681, type: 2}
+  - first:
+      type: UnityEngine:Material
+      assembly: UnityEngine.CoreModule
+      name: clava 1 button
+    second: {fileID: 2100000, guid: 355f50a8e21d3d745867a9982b563be7, type: 2}
+  - first:
+      type: UnityEngine:Material
+      assembly: UnityEngine.CoreModule
+      name: dark
+    second: {fileID: 2100000, guid: cb035a295e56b6d44b0693c0244515e3, type: 2}
+  - first:
+      type: UnityEngine:Material
+      assembly: UnityEngine.CoreModule
+      name: glass
+    second: {fileID: 2100000, guid: b3e81e9d909cf684691310b8862b9a67, type: 2}
+  - first:
+      type: UnityEngine:Material
+      assembly: UnityEngine.CoreModule
+      name: glass.001
+    second: {fileID: 2100000, guid: 18397230bf6a3ca4fb7ee608f682a615, type: 2}
+  - first:
+      type: UnityEngine:Material
+      assembly: UnityEngine.CoreModule
+      name: koska
+    second: {fileID: 2100000, guid: 616fe341793cb494fa92a8d56bfe11bf, type: 2}
+  - first:
+      type: UnityEngine:Material
+      assembly: UnityEngine.CoreModule
+      name: koska dark
+    second: {fileID: 2100000, guid: faf6f1e4c5b39de4eb1005333d4f52ec, type: 2}
+  - first:
+      type: UnityEngine:Material
+      assembly: UnityEngine.CoreModule
+      name: koska light
+    second: {fileID: 2100000, guid: fc5753cb9cfa456439b87e0edaaf53ff, type: 2}
+  - first:
+      type: UnityEngine:Material
+      assembly: UnityEngine.CoreModule
+      name: koska verevka
+    second: {fileID: 2100000, guid: 1801e0d706aedbe47bc2e43cd41f3c39, type: 2}
+  - first:
+      type: UnityEngine:Material
+      assembly: UnityEngine.CoreModule
+      name: koska verh
+    second: {fileID: 2100000, guid: fb31fbd85c3d1cc4a888494087482802, type: 2}
+  - first:
+      type: UnityEngine:Material
+      assembly: UnityEngine.CoreModule
+      name: kover
+    second: {fileID: 2100000, guid: b30b34a6827ccc74ab3d3926bae1b7ed, type: 2}
+  - first:
+      type: UnityEngine:Material
+      assembly: UnityEngine.CoreModule
+      name: kreslo
+    second: {fileID: 2100000, guid: c0a9b1b08b0f38c4f82d890c83c4aff3, type: 2}
+  - first:
+      type: UnityEngine:Material
+      assembly: UnityEngine.CoreModule
+      name: kreslo koleso dark
+    second: {fileID: 2100000, guid: ab274d00cbfdd104695524bbb8c9f01e, type: 2}
+  - first:
+      type: UnityEngine:Material
+      assembly: UnityEngine.CoreModule
+      name: kreslo koleso_
+    second: {fileID: 2100000, guid: 3bcc79de310fb7a47b3a36e258fcb52d, type: 2}
+  - first:
+      type: UnityEngine:Material
+      assembly: UnityEngine.CoreModule
+      name: kreslo metal
+    second: {fileID: 2100000, guid: ab1b8ea944da7c0428029ef0cffdd4d0, type: 2}
+  - first:
+      type: UnityEngine:Material
+      assembly: UnityEngine.CoreModule
+      name: kreslo rucka
+    second: {fileID: 2100000, guid: 0ec2375e266f9684ea291662e72a5f9b, type: 2}
+  - first:
+      type: UnityEngine:Material
+      assembly: UnityEngine.CoreModule
+      name: krovati
+    second: {fileID: 2100000, guid: e6b6448b71ba1e84fafe039d37a776fe, type: 2}
+  - first:
+      type: UnityEngine:Material
+      assembly: UnityEngine.CoreModule
+      name: lampa base
+    second: {fileID: 2100000, guid: 5433601bcd402fa4b8e280cb3fc7f3fb, type: 2}
+  - first:
+      type: UnityEngine:Material
+      assembly: UnityEngine.CoreModule
+      name: lampa niz
+    second: {fileID: 2100000, guid: 894c7e999addff3449baeba36ab63ef3, type: 2}
+  - first:
+      type: UnityEngine:Material
+      assembly: UnityEngine.CoreModule
+      name: lampa verh
+    second: {fileID: 2100000, guid: 493fffd94f63edc428d55ae6d7a13dd8, type: 2}
+  - first:
+      type: UnityEngine:Material
+      assembly: UnityEngine.CoreModule
+      name: lattice
+    second: {fileID: 2100000, guid: abc0efa8903f03a49bc39b751685c632, type: 2}
+  - first:
+      type: UnityEngine:Material
+      assembly: UnityEngine.CoreModule
+      name: matras
+    second: {fileID: 2100000, guid: 483afcb2809099549b92e81f489a5ad0, type: 2}
+  - first:
+      type: UnityEngine:Material
+      assembly: UnityEngine.CoreModule
+      name: monic 1
+    second: {fileID: 2100000, guid: d391061f8b2fc2a459820bd4c242923e, type: 2}
+  - first:
+      type: UnityEngine:Material
+      assembly: UnityEngine.CoreModule
+      name: okno
+    second: {fileID: 2100000, guid: f57836e0db1f9674dab8a30e87fcedb5, type: 2}
+  - first:
+      type: UnityEngine:Material
+      assembly: UnityEngine.CoreModule
+      name: paduska
+    second: {fileID: 2100000, guid: d538e37e358540446bbeb4b7414986ab, type: 2}
+  - first:
+      type: UnityEngine:Material
+      assembly: UnityEngine.CoreModule
+      name: pc 1
+    second: {fileID: 2100000, guid: 5be02f3bdc331a947b59a8caf8d756d3, type: 2}
+  - first:
+      type: UnityEngine:Material
+      assembly: UnityEngine.CoreModule
+      name: pc 1 dark
+    second: {fileID: 2100000, guid: 746991a8a38726e498e90dc6c43fa308, type: 2}
+  - first:
+      type: UnityEngine:Material
+      assembly: UnityEngine.CoreModule
+      name: plakat
+    second: {fileID: 2100000, guid: ecc178a425af6d94b94afac185596369, type: 2}
+  - first:
+      type: UnityEngine:Material
+      assembly: UnityEngine.CoreModule
+      name: pol
+    second: {fileID: 2100000, guid: 1725ceec0ee978946b09ca86d59ba122, type: 2}
+  - first:
+      type: UnityEngine:Material
+      assembly: UnityEngine.CoreModule
+      name: skaf
+    second: {fileID: 2100000, guid: ded6b83101d1abb4ebc36a5c37c2ee98, type: 2}
+  - first:
+      type: UnityEngine:Material
+      assembly: UnityEngine.CoreModule
+      name: skaf dark
+    second: {fileID: 2100000, guid: 2ca6618882382e14885f2ab703a27330, type: 2}
+  - first:
+      type: UnityEngine:Material
+      assembly: UnityEngine.CoreModule
+      name: skaf light
+    second: {fileID: 2100000, guid: b36d2223e8e8ad549a1529d7e0d29d9d, type: 2}
+  - first:
+      type: UnityEngine:Material
+      assembly: UnityEngine.CoreModule
+      name: stena
+    second: {fileID: 2100000, guid: 2e8be3973055d0d40b896945dd361591, type: 2}
+  - first:
+      type: UnityEngine:Material
+      assembly: UnityEngine.CoreModule
+      name: stol
+    second: {fileID: 2100000, guid: 5f3b95a590091e54b9305ad145ee2d7d, type: 2}
+  - first:
+      type: UnityEngine:Material
+      assembly: UnityEngine.CoreModule
+      name: stori
+    second: {fileID: 2100000, guid: 2a6a53dc12f845c43988abdefbc56dca, type: 2}
+  - first:
+      type: UnityEngine:Material
+      assembly: UnityEngine.CoreModule
+      name: stori metal
+    second: {fileID: 2100000, guid: 397fa4d74de795d48aa65c5f1643a573, type: 2}
+  materials:
+    materialImportMode: 1
+    materialName: 0
+    materialSearch: 1
+    materialLocation: 1
+  animations:
+    legacyGenerateAnimations: 4
+    bakeSimulation: 0
+    resampleCurves: 1
+    optimizeGameObjects: 0
+    motionNodeName: 
+    rigImportErrors: 
+    rigImportWarnings: 
+    animationImportErrors: 
+    animationImportWarnings: 
+    animationRetargetingWarnings: 
+    animationDoRetargetingWarnings: 0
+    importAnimatedCustomProperties: 0
+    importConstraints: 0
+    animationCompression: 1
+    animationRotationError: 0.5
+    animationPositionError: 0.5
+    animationScaleError: 0.5
+    animationWrapMode: 0
+    extraExposedTransformPaths: []
+    extraUserProperties: []
+    clipAnimations: []
+    isReadable: 0
+  meshes:
+    lODScreenPercentages: []
+    globalScale: 1
+    meshCompression: 0
+    addColliders: 0
+    useSRGBMaterialColor: 1
+    sortHierarchyByName: 1
+    importVisibility: 1
+    importBlendShapes: 1
+    importCameras: 1
+    importLights: 1
+    fileIdsGeneration: 2
+    swapUVChannels: 0
+    generateSecondaryUV: 0
+    useFileUnits: 1
+    keepQuads: 0
+    weldVertices: 1
+    preserveHierarchy: 0
+    skinWeightsMode: 0
+    maxBonesPerVertex: 4
+    minBoneWeight: 0.001
+    meshOptimizationFlags: -1
+    indexFormat: 0
+    secondaryUVAngleDistortion: 8
+    secondaryUVAreaDistortion: 15.000001
+    secondaryUVHardAngle: 88
+    secondaryUVPackMargin: 4
+    useFileScale: 1
+  tangentSpace:
+    normalSmoothAngle: 60
+    normalImportMode: 0
+    tangentImportMode: 3
+    normalCalculationMode: 4
+    legacyComputeAllNormalsFromSmoothingGroupsWhenMeshHasBlendShapes: 0
+    blendShapeNormalImportMode: 1
+    normalSmoothingSource: 0
+  referencedClips: []
+  importAnimation: 1
+  humanDescription:
+    serializedVersion: 3
+    human: []
+    skeleton: []
+    armTwist: 0.5
+    foreArmTwist: 0.5
+    upperLegTwist: 0.5
+    legTwist: 0.5
+    armStretch: 0.05
+    legStretch: 0.05
+    feetSpacing: 0
+    globalScale: 1
+    rootMotionBoneName: 
+    hasTranslationDoF: 0
+    hasExtraRoot: 0
+    skeletonHasParents: 1
+  lastHumanDescriptionAvatarSource: {instanceID: 0}
+  autoGenerateAvatarMappingIfUnspecified: 1
+  animationType: 2
+  humanoidOversampling: 1
+  avatarSetup: 0
+  additionalBone: 0
+  userData: 
+  assetBundleName: 
+  assetBundleVariant: 

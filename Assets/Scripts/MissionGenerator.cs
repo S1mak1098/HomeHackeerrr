@@ -65,13 +65,16 @@ public class MissionGenerator : MonoBehaviour
     public void CreateMission()
     {
         ready = false;
-        _SelectMissions[0] = _Misions_Easy[Random.Range(0, 2)];
-        _SelectMissions[1] = _Misions_Easy[Random.Range(0, 2)];
-        _SelectMissions[2] = _Misions_Easy[Random.Range(0, 2)];
+
+        for(int i = 0; i < _SelectMissions.Length; i++)
+        {
+            _SelectMissions[i] = _Misions_Easy[Random.Range(1, 13)];
+        }
+
         _SelectMis = Instantiate(windowM, Parrent);
         _SelectMis.GetComponent<RectTransform>().position = Spawn.position;
         WindowMission WM = _SelectMis.GetComponent<WindowMission>();
-        WM.AddPropertyMission(_SelectMissions[Random.Range(0, 2)]);
+        WM.AddPropertyMission(_SelectMissions[Random.Range(1, 13)]);
         WM.BtnNext.onClick.AddListener(NextMission);
 
         _CurrentTm = _SelectMis.GetComponent<RectTransform>();

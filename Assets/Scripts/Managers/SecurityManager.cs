@@ -8,7 +8,7 @@ using UnityEngine;
 /// </summary>
 public class SecurityManager : MonoBehaviour
 {
-    private float SecutiryChance = 10;
+    private float SecurityChance = 10;
     private int level = 1;
 
     /// <summary>
@@ -25,14 +25,14 @@ public class SecurityManager : MonoBehaviour
         if (level >= 31)
         {
             level = 31;
-            SecutiryChance = 100;
+            SecurityChance = 100;
         }
         else
         {
 
             level++;
-            SecutiryChance += 2.9f;
-            OnLevelUp?.Invoke(SecutiryChance, level);
+            SecurityChance += 2.9f;
+            OnLevelUp?.Invoke(SecurityChance, level);
         }
 
 

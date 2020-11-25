@@ -14,7 +14,7 @@ public class SelectItem
     private List<Material> materialDefault = new List<Material>();
     private Transform ObjectTransform;
     private bool Selected = false;
-
+    
     public void Init(GameObject _obj)
     {
         Debug.Log("Ищем материалы объекта");
