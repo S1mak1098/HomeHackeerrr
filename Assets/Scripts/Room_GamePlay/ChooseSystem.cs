@@ -1,40 +1,61 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.UI;
 
 
 /// <summary>
 /// Класс реализации системы выбора.
 /// </summary>
+/// 
+
 public class ChooseSystem : MonoBehaviour
 {
     [SerializeField] private ChooseItemData Data;//Все предметы на которые можно тыкать в игре.
-
-
-    private Item activeItem;//Предмет на который тыкнули, тоесть активный.
+    [SerializeField] private Button btnUpdate;
+    [SerializeField] private Text btnUpdateText;
+    [SerializeField] private Camera camera;
 
     void Start()
     {
         Item.OnSelectedItem += SelectedItem;//Подписываемся на события получения активного предмета
                                             //Как устроено ищите в классе Item.
 
+
     }
 
     void Update()
     {
+        if (Input.GetMouseButtonDown(0))
+        {
 
+            RaycastHit hit;
+            Ray ray = camera.ScreenPointToRay(Input.mousePosition);
+
+            if (Physics.Raycast(ray, out hit))
+            {
+                
+                Transform objectHit = hit.transform;
+                Debug.Log("На что мы кликнули : " + objectHit.gameObject.name);
+                SelectItem item = objectHit.gameObject.GetComponent<SelectItem>();
+                btnUpdate.gameObject.SetActive(false);
+                if (item!=null)
+                {
+                    item.ItemSelected();
+                    btnUpdate.gameObject.SetActive(true);
+                }
+            }
+            else
+            {   
+               // btnUpdate.gameObject.SetActive(false);
+            }
+        }
     }
 
-    void SelectedItem(Item item)
+    private void SelectedItem(Item item)
     {
-
-
-        for (int i = 0; i < Data.items.Length; i++)
-        {
-            Data.items[i].select.SetDefaultMarerial();
-        }
-        activeItem = item;
-        activeItem.item.Choose();//Сообщаем предмету, что его выбрали.
-        activeItem.select.Change();
+        Debug.Log("Сработало!!!!");
+        btnUpdate.onClick.AddListener(item.item.LevelUP);
+        btnUpdateText.text = "Улучшить :" + item.GetCurrentUpdatePrice();
     }
 }

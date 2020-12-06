@@ -16,14 +16,20 @@ public class Chair : Item,IBaseItem
 
     public void LevelUP()
     {
-
+        Debug.Log("Покупаем стулл");
+        if(ShopManager.Money>= levels[level+1].price)
+        {
+            ShopManager.Money -= levels[level + 1].price;
+            level++;
+            ChangeModel(level);
+        }
     }
 
     // Start is called before the first frame update
     void Start()
     {
         item = this;
-        select.Init(gameObject);
+        Init();
     }
 
     // Update is called once per frame
