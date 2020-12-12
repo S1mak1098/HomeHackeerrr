@@ -103,10 +103,12 @@ public class MenuManager : MonoBehaviour
         {
             _chooseLang = 0;
             PlayerPrefs.SetInt("ChoosenLanguage", _chooseLang);
+            LangManager.Instance.ChangeLang(_chooseLang);
         }
         if( EngLang.activeInHierarchy == true && RusLang.activeInHierarchy == false ) // Если включен английский
         { 
             _chooseLang = 1;
+            LangManager.Instance.ChangeLang(_chooseLang);
             PlayerPrefs.SetInt("ChoosenLanguage", _chooseLang);
         }
     }

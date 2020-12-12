@@ -1,40 +1,91 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.UI;
 
 
 /// <summary>
 /// Класс реализации системы выбора.
 /// </summary>
+/// 
+
 public class ChooseSystem : MonoBehaviour
 {
     [SerializeField] private ChooseItemData Data;//Все предметы на которые можно тыкать в игре.
-
-
-    private Item activeItem;//Предмет на который тыкнули, тоесть активный.
+    [SerializeField] private Button btnUpdate;
+    [SerializeField] private Text btnUpdateText;
+    [SerializeField] private Camera camera;
+    public static RoomData RData = new RoomData();
 
     void Start()
     {
         Item.OnSelectedItem += SelectedItem;//Подписываемся на события получения активного предмета
                                             //Как устроено ищите в классе Item.
+        Item.OnUpdateFailed += OnUpdateFailed;
+        RData.SetLevelRoom(1);
 
     }
 
     void Update()
     {
+        if (Input.GetMouseButtonDown(0))
+        {
+            ClearOtlines();
+            CheckSelectItem();
+        }
+    }
+
+    private void SelectedItem(Item item)
+    {
+        if (item.GetCurrentUpdatePrice() > 0 && item.TryUpLevel())
+        {
+            Debug.Log("Сработало!!!!");
+            btnUpdate.gameObject.SetActive(true);
+            btnUpdate.onClick.AddListener(item.item.LevelUP);
+            btnUpdateText.text = LangManager.Instance.Lang.Update + " " + item.GetNameUI() + ":" + item.GetCurrentUpdatePrice();
+        }
+        else
+        {
+            btnUpdate.gameObject.SetActive(false);
+        }
+
 
     }
 
-    void SelectedItem(Item item)
+    private void OnUpdateFailed(Item item)
+    {
+        btnUpdate.gameObject.SetActive(false);
+    }
+
+    private void ClearOtlines()
+    {
+        for (int i = 0; i < Data.outlines.Length; i++)
+        {
+            Data.outlines[i].enabled = false;
+        }
+    }
+
+    private void CheckSelectItem()
     {
 
+        RaycastHit hit;
+        Ray ray = camera.ScreenPointToRay(Input.mousePosition);
 
-        for (int i = 0; i < Data.items.Length; i++)
+        if (Physics.Raycast(ray, out hit))
         {
-            Data.items[i].select.SetDefaultMarerial();
+
+            Transform objectHit = hit.transform;
+            Debug.Log("На что мы кликнули : " + objectHit.gameObject.name);
+            SelectItem item = objectHit.gameObject.GetComponent<SelectItem>();
+            if (item != null)
+            {
+                item.ItemSelected();
+            }
+
         }
-        activeItem = item;
-        activeItem.item.Choose();//Сообщаем предмету, что его выбрали.
-        activeItem.select.Change();
+        else
+        {
+            // btnUpdate.gameObject.SetActive(false);
+        }
     }
 }

@@ -8,7 +8,7 @@ using UnityEngine;
 /// </summary>
 public class Bed : Item, IBaseItem
 {
-    public void Choose()
+    public void Choose(SelectItem item)
     {
         Debug.Log("Это кровать для бомжей");
     }
@@ -19,11 +19,12 @@ public class Bed : Item, IBaseItem
     }
 
     // Start is called before the first frame update
-    void Start()
+     void Start()
     {
+        Init();
         item = this;//прокидываем ссылку на базовый класс объекта, 
                     //дабы не типотизировать и вызывать методы от туда а не от сюда
-        select.Init(gameObject);
+                    
     }
 
     // Update is called once per frame
