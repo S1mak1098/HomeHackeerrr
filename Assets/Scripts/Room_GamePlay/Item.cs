@@ -18,24 +18,27 @@ public struct LevelItem
 public class Item : MonoBehaviour
 {
     public static Action<Item> OnSelectedItem;//Сам делегат
+    public static Action<Item> OnUpdateFailed;//Сам делегат
     public IBaseItem item;//Интерфейс реализаци его наследуют уже имено предметы(кровать, стул и т.д)
 
 
 
     [SerializeField] protected LevelItem[] levels;
-    [SerializeField] protected int level = 0;//Текущий уровень, как менять модель еще хз :D.
-    [SerializeField] private string NameItem;
+    [SerializeField] protected int level = 0;//Текущий уровень
+    [SerializeField] protected string NameItem;
+    [SerializeField] protected cakeslice.OutlineEffect OutlineEffect;
+    [SerializeField] protected cakeslice.Outline Outline;
 
     void Start()
     {
 
     }
-    protected void SelectedItem(string select)
+    protected void SelectedItem(SelectItem select)
     {
-        if (NameItem == select)
+        if (NameItem == select.type)
         {
             OnSelectedItem?.Invoke(this);
-            item.Choose();
+            item.Choose(select);
         }
 
     }
@@ -51,6 +54,7 @@ public class Item : MonoBehaviour
             if (i == id)
             {
                 levels[i].obj.SetActive(true);
+                //Outline = levels;
             }
             else
             {
@@ -60,9 +64,41 @@ public class Item : MonoBehaviour
 
         }
     }
-
     public int GetCurrentUpdatePrice()
     {
-        return levels[level + 1].price;
+        if (levels.Length > level + 1)
+        {
+            return levels[level + 1].price;
+        }
+        else
+        {
+            return -1;
+        }
+
+    }
+    public string GetNameUI()
+    {
+        if(NameItem == "Chair")
+        {
+            return LangManager.Instance.Lang.Chair;
+        }
+        if (NameItem == "Table")
+        {
+            return LangManager.Instance.Lang.Table;
+        }
+        if (NameItem == "Bed")
+        {
+            return LangManager.Instance.Lang.Bed;
+        }
+        if (NameItem == "Computer")
+        {
+            return LangManager.Instance.Lang.Bed;
+        }
+        return "Noone";
+    }
+
+    public virtual bool TryUpLevel()
+    {
+        return false;
     }
 }

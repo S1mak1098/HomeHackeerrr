@@ -15,12 +15,14 @@ public class ChooseSystem : MonoBehaviour
     [SerializeField] private Button btnUpdate;
     [SerializeField] private Text btnUpdateText;
     [SerializeField] private Camera camera;
+    public static RoomData RData = new RoomData();
 
     void Start()
     {
         Item.OnSelectedItem += SelectedItem;//Подписываемся на события получения активного предмета
                                             //Как устроено ищите в классе Item.
-
+        Item.OnUpdateFailed += OnUpdateFailed;
+        RData.SetLevelRoom(1);
 
     }
 
@@ -28,34 +30,62 @@ public class ChooseSystem : MonoBehaviour
     {
         if (Input.GetMouseButtonDown(0))
         {
-
-            RaycastHit hit;
-            Ray ray = camera.ScreenPointToRay(Input.mousePosition);
-
-            if (Physics.Raycast(ray, out hit))
-            {
-                
-                Transform objectHit = hit.transform;
-                Debug.Log("На что мы кликнули : " + objectHit.gameObject.name);
-                SelectItem item = objectHit.gameObject.GetComponent<SelectItem>();
-                btnUpdate.gameObject.SetActive(false);
-                if (item!=null)
-                {
-                    item.ItemSelected();
-                    btnUpdate.gameObject.SetActive(true);
-                }
-            }
-            else
-            {   
-               // btnUpdate.gameObject.SetActive(false);
-            }
+            ClearOtlines();
+            CheckSelectItem();
         }
     }
 
     private void SelectedItem(Item item)
     {
-        Debug.Log("Сработало!!!!");
-        btnUpdate.onClick.AddListener(item.item.LevelUP);
-        btnUpdateText.text = "Улучшить :" + item.GetCurrentUpdatePrice();
+        if (item.GetCurrentUpdatePrice() > 0 && item.TryUpLevel())
+        {
+            Debug.Log("Сработало!!!!");
+            btnUpdate.gameObject.SetActive(true);
+            btnUpdate.onClick.AddListener(item.item.LevelUP);
+            btnUpdateText.text = LangManager.Instance.Lang.Update + " " + item.GetNameUI() + ":" + item.GetCurrentUpdatePrice();
+        }
+        else
+        {
+            btnUpdate.gameObject.SetActive(false);
+        }
+
+
+    }
+
+    private void OnUpdateFailed(Item item)
+    {
+        btnUpdate.gameObject.SetActive(false);
+    }
+
+    private void ClearOtlines()
+    {
+        for (int i = 0; i < Data.outlines.Length; i++)
+        {
+            Data.outlines[i].enabled = false;
+        }
+    }
+
+    private void CheckSelectItem()
+    {
+
+        RaycastHit hit;
+        Ray ray = camera.ScreenPointToRay(Input.mousePosition);
+
+        if (Physics.Raycast(ray, out hit))
+        {
+
+            Transform objectHit = hit.transform;
+            Debug.Log("На что мы кликнули : " + objectHit.gameObject.name);
+            SelectItem item = objectHit.gameObject.GetComponent<SelectItem>();
+            if (item != null)
+            {
+                item.ItemSelected();
+            }
+
+        }
+        else
+        {
+            // btnUpdate.gameObject.SetActive(false);
+        }
     }
 }

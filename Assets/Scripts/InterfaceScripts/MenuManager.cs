@@ -2,6 +2,7 @@
 using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.UI;
+using UnityEngine.SceneManagement;
 
 public class MenuManager : MonoBehaviour
 {
@@ -22,22 +23,16 @@ public class MenuManager : MonoBehaviour
 
     public GameObject RusLang;
     public GameObject EngLang;
-
+    int _chooseLang;
     public GameObject ServersBtn;
     public GameObject ShopBtn;
     public GameObject HomeBtn;
     public GameObject TelephonBtn;
 
     [SerializeField] private GameObject MissionTel;
-
-
     [SerializeField] private CameraChange cameraChange;
-    void Start()
-    {
-
-    }
-
-    void Update()
+ 
+    private void Update()
     {
         if (ShopPan.activeInHierarchy == true)
         {
@@ -99,10 +94,23 @@ public class MenuManager : MonoBehaviour
         SettingsPan.SetActive(false);
 
     }
-    public void SwitchLanguage()
+    public void SwitchLanguage() // Смена языка(Анлийский, Русский)
     {
         RusLang.SetActive(!RusLang.activeSelf);
         EngLang.SetActive(!EngLang.activeSelf);
+
+        if( RusLang.activeInHierarchy == true &&  EngLang.activeInHierarchy == false ) // Если включен русский
+        {
+            _chooseLang = 0;
+            PlayerPrefs.SetInt("ChoosenLanguage", _chooseLang);
+            LangManager.Instance.ChangeLang(_chooseLang);
+        }
+        if( EngLang.activeInHierarchy == true && RusLang.activeInHierarchy == false ) // Если включен английский
+        { 
+            _chooseLang = 1;
+            LangManager.Instance.ChangeLang(_chooseLang);
+            PlayerPrefs.SetInt("ChoosenLanguage", _chooseLang);
+        }
     }
 
     public void EnableDisableSound()
@@ -147,7 +155,6 @@ public class MenuManager : MonoBehaviour
         PlayerPrefs.SetInt("AllMoney", ShopManager.Money);
         ShopManager.OnMoneyChange?.Invoke(ShopManager.Money);
     }
-
 
 
 }

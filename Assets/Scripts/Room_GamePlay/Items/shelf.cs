@@ -8,7 +8,7 @@ using UnityEngine;
 /// </summary>
 public class Shelf : Item,IBaseItem
 {
-    public void Choose()
+    public void Choose(SelectItem item)
     {
 
     }

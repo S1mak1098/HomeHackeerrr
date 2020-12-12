@@ -8,6 +8,6 @@ using UnityEngine;
 [System.Serializable]
 public class ChooseItemData
 {
-    public Item[] items;
+    public cakeslice.Outline[] outlines;
     
 }

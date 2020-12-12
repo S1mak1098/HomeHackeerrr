@@ -5,7 +5,7 @@ namespace RoomGP.Interfaces
 {
     public interface IBaseItem//Реализация функций предмета, что с ним сделаи
     {
-         void Choose();// Выбрали
+         void Choose(SelectItem item);// Выбрали
          void LevelUP();// Повысили его уровень
 
     }

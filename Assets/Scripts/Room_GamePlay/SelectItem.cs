@@ -7,10 +7,12 @@ using UnityEngine;
 public class SelectItem : MonoBehaviour
 {
     
-    public static Action<string> OnItemSelected;
-    [SerializeField] private string type;
+    public static Action<SelectItem> OnItemSelected;
+    public string type;
+
+    public cakeslice.Outline[] outlines;
     public void ItemSelected()
     {
-        OnItemSelected?.Invoke(type);
+        OnItemSelected?.Invoke(this);
     }
 }

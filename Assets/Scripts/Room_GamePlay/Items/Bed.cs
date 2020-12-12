@@ -8,7 +8,7 @@ using UnityEngine;
 /// </summary>
 public class Bed : Item, IBaseItem
 {
-    public void Choose()
+    public void Choose(SelectItem item)
     {
         Debug.Log("Это кровать для бомжей");
     }
