@@ -1,0 +1,22 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 1e8bbad6ed9f8ad438ef4fbe4bf1f61e, type: 3}
+  m_Name: M_33
+  m_EditorClassIdentifier: 
+  _complexity: 2
+  _textMissionRus: "\u0417\u0434\u043E\u0440\u043E\u0432\u0430, \u044F \u043D\u0430\u0448\u0435\u043B
+    \u0431\u0430\u043D\u043A\u043E\u0432\u0441\u043A\u0443\u044E \u043A\u0430\u0440\u0442\u0443,
+    \u0432\u0437\u043B\u043E\u043C\u0430\u0439 \u0435\u0435, \u0447\u0442\u043E\u0431
+    \u044F \u043C\u043E\u0433 \u0441\u043D\u044F\u0442\u044C \u0432\u0441\u0435 \u0441\u0440\u0435\u0434\u0441\u0442\u0432\u0430"
+  _textMissionEng: Hello there, I have found one bank card. Hack it so I will withdraw
+    all the money.
+  price: 0

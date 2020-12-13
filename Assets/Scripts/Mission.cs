@@ -4,6 +4,7 @@ using UnityEngine;
 
 public enum Complexity
 {
+    Styding,
     Easy,
     Normal,
     Hard
