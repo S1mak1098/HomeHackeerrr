@@ -1,4 +1,4 @@
-﻿using System.Collections;
+using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
@@ -18,5 +18,7 @@ public class Mission : ScriptableObject
     [TextArea()] public string _textMissionRus;
     [TextArea()] public string _textMissionEng;
     public int price;
+    public int Fatigue;
+    public int Dangeroys;
 
 }
