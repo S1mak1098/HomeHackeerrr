@@ -22,7 +22,9 @@ public class ChooseSystem : MonoBehaviour
         Item.OnSelectedItem += SelectedItem;//Подписываемся на события получения активного предмета
                                             //Как устроено ищите в классе Item.
         Item.OnUpdateFailed += OnUpdateFailed;
-        RData.SetLevelRoom(1);
+        RData.SetLevelRoom(4);
+        OffAllOutlines();
+        
 
     }
 
@@ -30,7 +32,7 @@ public class ChooseSystem : MonoBehaviour
     {
         if (Input.GetMouseButtonDown(0))
         {
-            ClearOtlines();
+            OffAllOutlines();
             CheckSelectItem();
         }
     }
@@ -57,14 +59,6 @@ public class ChooseSystem : MonoBehaviour
         btnUpdate.gameObject.SetActive(false);
     }
 
-    private void ClearOtlines()
-    {
-        for (int i = 0; i < Data.outlines.Length; i++)
-        {
-            Data.outlines[i].enabled = false;
-        }
-    }
-
     private void CheckSelectItem()
     {
 
@@ -79,6 +73,7 @@ public class ChooseSystem : MonoBehaviour
             SelectItem item = objectHit.gameObject.GetComponent<SelectItem>();
             if (item != null)
             {
+                Debug.Log("item.ItemSelected()");
                 item.ItemSelected();
             }
 
@@ -86,6 +81,14 @@ public class ChooseSystem : MonoBehaviour
         else
         {
             // btnUpdate.gameObject.SetActive(false);
+        }
+    }
+
+    private void OffAllOutlines()
+    {
+        for(int i =0; i<Data.outlines.Length;i++)
+        {
+            Data.outlines[i].eraseRenderer = true;
         }
     }
 }

@@ -26,8 +26,6 @@ public class Item : MonoBehaviour
     [SerializeField] protected LevelItem[] levels;
     [SerializeField] protected int level = 0;//Текущий уровень
     [SerializeField] protected string NameItem;
-    [SerializeField] protected cakeslice.OutlineEffect OutlineEffect;
-    [SerializeField] protected cakeslice.Outline Outline;
 
     void Start()
     {
@@ -64,6 +62,15 @@ public class Item : MonoBehaviour
 
         }
     }
+
+    protected void OnOutline(SelectItem i)
+    {
+        for(int l=0;l<i.outlines.Length;l++)
+        {
+            i.outlines[l].eraseRenderer = false;
+        }
+    }
+
     public int GetCurrentUpdatePrice()
     {
         if (levels.Length > level + 1)
@@ -80,7 +87,7 @@ public class Item : MonoBehaviour
     {
         if(NameItem == "Chair")
         {
-            return LangManager.Instance.Lang.Chair;
+            return LangManager.Instance.Lang.Chair;//Получаем текущий языкв игре, в данном случае нам нужно значение Chair (Стул)
         }
         if (NameItem == "Table")
         {
@@ -101,4 +108,6 @@ public class Item : MonoBehaviour
     {
         return false;
     }
+
+
 }

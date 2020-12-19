@@ -13,6 +13,7 @@ public class Chair : Item,IBaseItem
     {
         
         Debug.Log("А на такой стул даже бомжи не сядят");
+        OnOutline(item);
 
     }
 

@@ -1,4 +1,12 @@
-﻿using UnityEngine;
+﻿/*
+ А это синглтон. 
+ Не помню откуда я его спиздил, нужен для LangMangaer.
+ 
+ 
+ */
+
+
+using UnityEngine;
 
 public class UnitySingletonPersistent<T> : MonoBehaviour where T : Component
 {
