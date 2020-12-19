@@ -87,7 +87,7 @@ public class Item : MonoBehaviour
     {
         if(NameItem == "Chair")
         {
-            return LangManager.Instance.Lang.Chair;
+            return LangManager.Instance.Lang.Chair;//Получаем текущий языкв игре, в данном случае нам нужно значение Chair (Стул)
         }
         if (NameItem == "Table")
         {

@@ -11,11 +11,33 @@ public class Bed : Item, IBaseItem
     public void Choose(SelectItem item)
     {
         Debug.Log("Это кровать для бомжей");
+        OnOutline(item);
     }
 
     public void LevelUP()
     {
+        Debug.Log("Покупаем стулл");
+        if (levels.Length > level + 1)
+        {
+            if (ShopManager.Money >= levels[level + 1].price)
+            {
 
+                if (ChooseSystem.RData.TryBedLevelUp())
+                {
+                    ShopManager.Money -= levels[level + 1].price;
+                    level++;
+                    ChangeModel(level);
+                    ChooseSystem.RData.BedLevelUp();
+                    OnSelectedItem?.Invoke(this);
+                }
+                else
+                {
+                    Debug.LogAssertion("ERROR : Не удалось проверить уровень стула");
+                    OnUpdateFailed?.Invoke(this);
+                }
+
+            }
+        }
     }
 
     // Start is called before the first frame update
@@ -31,5 +53,9 @@ public class Bed : Item, IBaseItem
     void Update()
     {
         
+    }
+    public override bool TryUpLevel()
+    {
+        return ChooseSystem.RData.TryBedLevelUp();
     }
 }

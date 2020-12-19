@@ -27,13 +27,13 @@ public class RoomData
         BedLevel++;
         UpdateRoomLevel();
     }
-    public  void ComputerLevelUp()
+    public  void ShelfLevelUp()
     {
         Shelf++;
         UpdateRoomLevel();
     }
 
-    public  bool TryComputerLevelUp()
+    public  bool TryShelfLevelUp()
     {
         if(LevelRoom == 1 && Shelf < 2)
         {

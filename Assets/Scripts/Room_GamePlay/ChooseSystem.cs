@@ -73,6 +73,7 @@ public class ChooseSystem : MonoBehaviour
             SelectItem item = objectHit.gameObject.GetComponent<SelectItem>();
             if (item != null)
             {
+                Debug.Log("item.ItemSelected()");
                 item.ItemSelected();
             }
 
