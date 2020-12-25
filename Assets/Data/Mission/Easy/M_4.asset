@@ -25,3 +25,5 @@ MonoBehaviour:
   _textMissionEng: Hello there. Can you help me? I have a trouble. In short words,
     my girlfriend betrayed me. Will you hack her Instagram and delete all the photos?
   price: 0
+  Fatigue: 0
+  Dangerous: 0

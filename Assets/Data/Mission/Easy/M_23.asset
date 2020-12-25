@@ -23,3 +23,5 @@ MonoBehaviour:
   _textMissionEng: Hi. I'm not sure you will do it, I need to hack one scum's e-mail.
     When you hack it, try stealing all the messages sent.
   price: 0
+  Fatigue: 0
+  Dangerous: 0

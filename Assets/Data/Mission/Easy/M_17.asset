@@ -21,3 +21,5 @@ MonoBehaviour:
   _textMissionEng: ' Hi, I''m gonna intimidate my offender. The task is simple, hack
     his accounts in a couple of websites.'
   price: 0
+  Fatigue: 0
+  Dangerous: 0

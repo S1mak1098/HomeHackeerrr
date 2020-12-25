@@ -27,3 +27,5 @@ MonoBehaviour:
     accounts and check whether she's cheating on me? Don't forget to tell me about
     it.
   price: 0
+  Fatigue: 0
+  Dangerous: 0

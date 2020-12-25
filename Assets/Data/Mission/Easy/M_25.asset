@@ -20,3 +20,5 @@ MonoBehaviour:
 
 '
   price: 0
+  Fatigue: 0
+  Dangerous: 0

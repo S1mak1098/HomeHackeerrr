@@ -12,27 +12,39 @@ public class WindowMission : MonoBehaviour
     public Text _TextComplexity;
 
 
-    public GameObject PcCamera;
+    private int _dangerous;
 
     public Button BtnNext;
     public Button BtnStart;
 
+    private float SecurityChance;
+    private float Energy;
+
     void Start()
     {
-        
+        SecurityChance = PlayerPrefs.GetFloat("SecurityCount");
+        Energy = PlayerPrefs.GetFloat("currentEnergy");
     }
 
-    // Update is called once per frame
-    void Update()
-    {
-        
-    }
     public void StartMission()
     {
-        Debug.Log("должно работать");   
-        GameObject.Find("PcCamera").GetComponent<Camera>().enabled = true;
-        GameObject.Find("CanvasINTERFACE").SetActive(false);
-        gameObject.SetActive(false);
+        var _mGenerator = GameObject.Find("MissionGenerator");
+        _mGenerator.SetActive(false); // Выключение телефона перед взломом
+    
+         
+
+        Energy -= 5f; // Минус энергия
+        SecurityChance -= 50f; // Минус безопасность
+
+        Debug.Log("Текущая безопасность -> " + SecurityChance);
+        Debug.Log("Текущая энергия -> " + Energy);
+
+        PlayerPrefs.SetFloat("SecurityCount", SecurityChance);
+        PlayerPrefs.SetFloat("currentEnergy", Energy);
+
+        GameObject.Find("PcCamera").GetComponent<Camera>().enabled = true; // Включение камеры пк
+        GameObject.Find("CanvasINTERFACE").SetActive(false); // Выключение основного интерфейса
+        gameObject.SetActive(false); 
 
     }
 

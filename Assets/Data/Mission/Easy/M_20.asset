@@ -23,3 +23,5 @@ MonoBehaviour:
   _textMissionEng: ' Good morning. I want to check what my daughter is doing. Hack
     her web accounts and send me all the data about her.'
   price: 0
+  Fatigue: 0
+  Dangerous: 0

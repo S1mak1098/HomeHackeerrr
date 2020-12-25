@@ -51,7 +51,6 @@ public class TextGenerator : MonoBehaviour
 
                 i += 5;
                 float random = Random.Range(0.00f, 100f);
-                Debug.Log(random);
                 if (random < 10) { BM.RandomBugs(); }
             }
 

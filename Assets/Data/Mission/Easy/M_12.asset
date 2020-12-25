@@ -26,3 +26,5 @@ MonoBehaviour:
     I''ve sent a wrong document via e-mail. Can you hack the sending process and
     change a document or just cancel it?'
   price: 0
+  Fatigue: 0
+  Dangerous: 0

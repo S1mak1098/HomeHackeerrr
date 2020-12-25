@@ -30,11 +30,13 @@ public class MissionGenerator : MonoBehaviour
     public GameObject PC_CAMERA;
 
     public Text LvlTxt;
-    public int LevelGame = 6;
+    public int LevelGame = 1;
+
+    public SecurityManager secManager;
 
     void Start()
     {
-        
+        Debug.Log(CurrentMission.Dangerous);
     }
 
     // Update is called once per frame
@@ -53,8 +55,8 @@ public class MissionGenerator : MonoBehaviour
     }
 
     public void StartMission()
-    {
-
+    {  
+        Debug.Log("Starting");
         StartCoroutine(MissionStart());
         
     }
@@ -116,7 +118,6 @@ public class MissionGenerator : MonoBehaviour
         {
             _CurrentTm.position = Vector2.MoveTowards(_CurrentTm.position, new Vector2(_CurrentTm.position.x, (Screen.height / 2) *3), Time.deltaTime*1000);
             yield return null;
-            Debug.Log((int)_CurrentTm.position.y);
         }
         Destroy(_SelectMis);
         CreateMission();

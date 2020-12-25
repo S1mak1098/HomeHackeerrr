@@ -29,6 +29,7 @@ public class MenuManager : MonoBehaviour
     public GameObject HomeBtn;
     public GameObject TelephonBtn;
 
+
     [SerializeField] private GameObject MissionTel;
     [SerializeField] private CameraChange cameraChange;
  
@@ -85,14 +86,12 @@ public class MenuManager : MonoBehaviour
     }
     public void SettingsEnable()
     {
-
         SettingsPan.SetActive(true);
         ShopPan.SetActive(false);
     }
     public void QuitSettingsPan()
     {
         SettingsPan.SetActive(false);
-
     }
     public void SwitchLanguage() // Смена языка(Анлийский, Русский)
     {

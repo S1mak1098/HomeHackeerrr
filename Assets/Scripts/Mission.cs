@@ -20,6 +20,6 @@ public class Mission : ScriptableObject
     [TextArea()] public string _textMissionEng;
     public int price;
     public int Fatigue;
-    public int Dangeroys;
+    public int Dangerous;
 
 }

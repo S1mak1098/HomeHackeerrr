@@ -26,3 +26,5 @@ MonoBehaviour:
     company. Every morning in 4 AM he wakes up and chats with someone. Can you hack
     his phone and let me know who he is chatting with?'
   price: 0
+  Fatigue: 0
+  Dangerous: 0

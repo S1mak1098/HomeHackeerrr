@@ -23,3 +23,5 @@ MonoBehaviour:
   _textMissionEng: Hallo, I know you are a cool hacker and you can do quite a lot.
     I really need you to hack camera in one dude's tablet.
   price: 0
+  Fatigue: 0
+  Dangerous: 0

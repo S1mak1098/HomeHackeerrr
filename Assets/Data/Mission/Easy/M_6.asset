@@ -26,3 +26,5 @@ MonoBehaviour:
     have a math test tomorrow. Can you steal the test from teacher''s e-mail and
     send it to me? Thanks in advance.'
   price: 0
+  Fatigue: 0
+  Dangerous: 0

@@ -23,3 +23,5 @@ MonoBehaviour:
   _textMissionEng: Hey, dude, listen close. Your task is to search a couple of accounts
     in Telegram, hack them, and then use as spam bots.
   price: 0
+  Fatigue: 0
+  Dangerous: 0

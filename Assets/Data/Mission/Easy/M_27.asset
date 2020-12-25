@@ -21,3 +21,5 @@ MonoBehaviour:
   _textMissionEng: Hi. Might be silly, but can you hack a SIM card and give me an
     access to phone numbers?
   price: 0
+  Fatigue: 0
+  Dangerous: 0

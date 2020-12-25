@@ -8,7 +8,7 @@ using UnityEngine;
 /// </summary>
 public class SecurityManager : MonoBehaviour
 {
-    private float SecurityChance = 10;
+    private float SecurityChance;
     private int level = 1;
 
     /// <summary>
@@ -18,7 +18,11 @@ public class SecurityManager : MonoBehaviour
     public static Action<float ,int> OnLevelUp;
     public static Action<SecurityManager> OnSecurityFailed;//Событие когда безопастность не сработала
 
-
+    private void Start()
+    {
+        SecurityChance = PlayerPrefs.GetFloat("SecurityCount");
+        Debug.Log("Безопасность -> " + SecurityChance);
+    }
     public void BtnLevelUp()
     {
 
@@ -38,6 +42,13 @@ public class SecurityManager : MonoBehaviour
 
     }
 
+
+    public void PlusSec()
+    {
+        SecurityChance += 20f;
+        PlayerPrefs.SetFloat("SecurityCount", SecurityChance);
+        Debug.Log("Добавилось 20: " + SecurityChance );
+    }
     /// <summary>
     /// Метод загруки сохранения, на будущее
     /// </summary>

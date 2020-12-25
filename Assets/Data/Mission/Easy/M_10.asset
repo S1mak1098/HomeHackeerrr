@@ -25,3 +25,5 @@ MonoBehaviour:
   _textMissionEng: Hi there, I have a job for you. There is a very important order
     to complete. One fraud tried to frame me, hack him and send me his data.
   price: 0
+  Fatigue: 0
+  Dangerous: 0
