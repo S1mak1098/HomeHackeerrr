@@ -10,7 +10,6 @@ public class SecurityUI : MonoBehaviour
 
     [SerializeField] private Image img;
     [SerializeField] private Text text;
-
     void ChangeAmmout(float Chance,int level )
     {
         img.fillAmount = Chance/100;

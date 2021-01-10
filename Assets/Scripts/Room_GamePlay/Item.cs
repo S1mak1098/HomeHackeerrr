@@ -70,7 +70,6 @@ public class Item : MonoBehaviour
             i.outlines[l].eraseRenderer = false;
         }
     }
-
     public int GetCurrentUpdatePrice()
     {
         if (levels.Length > level + 1)
@@ -100,6 +99,10 @@ public class Item : MonoBehaviour
         if (NameItem == "Computer")
         {
             return LangManager.Instance.Lang.Bed;
+        }
+        if (NameItem == "Shelf")
+        {
+            return LangManager.Instance.Lang.Shelf;
         }
         return "Noone";
     }

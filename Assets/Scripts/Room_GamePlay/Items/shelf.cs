@@ -43,6 +43,7 @@ public class Shelf : Item,IBaseItem
     void Start()
     {
         item = this;
+        Init();
     }
 
     // Update is called once per frame

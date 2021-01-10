@@ -1,41 +1,37 @@
-﻿using System.Collections;
-using System.Collections.Generic;
-using UnityEngine;
-
-public class RoomData
+﻿public class RoomData
 {
-    public  int LevelRoom = 1;
+    public int LevelRoom = 1;
 
-    private  int ChairLevel = 1;
-    private  int TableLevel = 1;
-    private  int BedLevel = 1;
-    private  int Shelf = 1;
+    private int ChairLevel = 1;
+    private int TableLevel = 1;
+    private int BedLevel = 1;
+    private int Shelf = 1;
 
 
-    public  void ChairLevelUp()
+    public void ChairLevelUp()
     {
         ChairLevel++;
         UpdateRoomLevel();
     }
-    public  void TableLevelUp()
+    public void TableLevelUp()
     {
         TableLevel++;
         UpdateRoomLevel();
     }
-    public  void BedLevelUp()
+    public void BedLevelUp()
     {
         BedLevel++;
         UpdateRoomLevel();
     }
-    public  void ShelfLevelUp()
+    public void ShelfLevelUp()
     {
         Shelf++;
         UpdateRoomLevel();
     }
 
-    public  bool TryShelfLevelUp()
+    public bool TryShelfLevelUp()
     {
-        if(LevelRoom == 1 && Shelf < 2)
+        if (LevelRoom == 1 && Shelf < 2)
         {
             return true;
         }
@@ -47,13 +43,13 @@ public class RoomData
         {
             return true;
         }
-        if (LevelRoom == 4 && Shelf == 4)
+        if (LevelRoom == 4 && Shelf < 4)
         {
-            return false;
+            return true;
         }
         return false;
     }
-    public  bool TryChairLevelUp()
+    public bool TryChairLevelUp()
     {
         if (LevelRoom == 1 && ChairLevel < 2)
         {
@@ -73,7 +69,7 @@ public class RoomData
         }
         return false;
     }
-    public  bool TryTableLevelUp()
+    public bool TryTableLevelUp()
     {
         if (LevelRoom == 1 && TableLevel < 2)
         {
@@ -87,13 +83,13 @@ public class RoomData
         {
             return true;
         }
-        if (LevelRoom == 4 && TableLevel == 4)
+        if (LevelRoom == 4 && TableLevel < 4)
         {
-            return false;
+            return true;
         }
         return false;
     }
-    public  bool TryBedLevelUp()
+    public bool TryBedLevelUp()
     {
         if (LevelRoom == 1 && BedLevel < 2)
         {
@@ -103,13 +99,13 @@ public class RoomData
         {
             return true;
         }
-        if (LevelRoom == 3 && TableLevel < 4)
+        if (LevelRoom == 3 && BedLevel < 4)
         {
             return true;
         }
-        if (LevelRoom == 4 && BedLevel == 4)
+        if (LevelRoom == 4 && BedLevel < 4)
         {
-            return false;
+            return true;
         }
         return false;
     }
@@ -121,7 +117,7 @@ public class RoomData
     }
     private void UpdateRoomLevel()
     {
-        if(ChairLevel==2 && BedLevel == 2 && TableLevel == 2 && Shelf == 2)
+        if (ChairLevel == 2 && BedLevel == 2 && TableLevel == 2 && Shelf == 2)
         {
             LevelRoom = 2;
         }
