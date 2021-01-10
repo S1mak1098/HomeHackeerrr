@@ -43,9 +43,10 @@ public class Bed : Item, IBaseItem
     // Start is called before the first frame update
      void Start()
     {
-        Init();
         item = this;//прокидываем ссылку на базовый класс объекта, 
                     //дабы не типотизировать и вызывать методы от туда а не от сюда
+        Init();
+
                     
     }
 

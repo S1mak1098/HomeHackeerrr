@@ -23,7 +23,6 @@ public class LangManager : UnitySingletonPersistent<LangManager>//Делаем �
     [SerializeField] private LangluageSettings Eng;
 
     [HideInInspector] public LangluageSettings Lang;
-
     public void ChangeLang(int id)//какой язык щас включен смотрим в MenuManager. Там эту функцию и вызываем.
     {
         if(id==0)

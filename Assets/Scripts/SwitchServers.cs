@@ -21,38 +21,45 @@ public class SwitchServers : MonoBehaviour
     private void Start()
     {
         LevelBtnUpdate1 = PlayerPrefs.GetInt("LevelInt");
+        UpdateBattery();
     }
     private void Update()
     {   
-        if(LevelBtnUpdate1 >= 2)
+
+
+    }
+
+    public void UpdateBattery()
+    {
+        if (LevelBtnUpdate1 >= 2)
         {
             for (int i = 0; i < VeryLowBattery.Length; i++)
             {
                 VeryLowBattery[i].SetActive(true);
             }
         }
-        if(LevelBtnUpdate1 >= 4)
+        if (LevelBtnUpdate1 >= 4)
         {
             for (int i = 0; i < LowBattery.Length; i++)
             {
                 LowBattery[i].SetActive(true);
             }
         }
-        if(LevelBtnUpdate1 >= 6)
+        if (LevelBtnUpdate1 >= 6)
         {
             for (int i = 0; i < MeduimBattery.Length; i++)
             {
                 MeduimBattery[i].SetActive(true);
             }
         }
-        if(LevelBtnUpdate1 >= 8)
+        if (LevelBtnUpdate1 >= 8)
         {
             for (int i = 0; i < HighBattery.Length; i++)
             {
                 HighBattery[i].SetActive(true);
             }
         }
-        if(LevelBtnUpdate1 >= 10)
+        if (LevelBtnUpdate1 >= 10)
         {
             for (int i = 0; i < VeryHighBattery.Length; i++)
             {
@@ -62,7 +69,7 @@ public class SwitchServers : MonoBehaviour
         }
 
 
-        if(LevelBtnUpdate1 >= 12)
+        if (LevelBtnUpdate1 >= 12)
         {
             for (int i = 0; i < VeryLowBattery.Length; i++)
             {
@@ -71,35 +78,35 @@ public class SwitchServers : MonoBehaviour
             }
         }
 
-        if(LevelBtnUpdate1 >= 14)
+        if (LevelBtnUpdate1 >= 14)
         {
             for (int i = 0; i < LowBattery.Length; i++)
             {
                 LowBattery[i].SetActive(true);
-        
+
             }
         }
 
 
-        if(LevelBtnUpdate1 >= 16)
+        if (LevelBtnUpdate1 >= 16)
         {
             for (int i = 0; i < MeduimBattery.Length; i++)
             {
                 MeduimBattery[i].SetActive(true);
-           
+
             }
         }
 
-        if(LevelBtnUpdate1 >= 18)
+        if (LevelBtnUpdate1 >= 18)
         {
             for (int i = 0; i < HighBattery.Length; i++)
             {
                 HighBattery[i].SetActive(true);
-         
+
             }
         }
 
-        if(LevelBtnUpdate1 >= 20)
+        if (LevelBtnUpdate1 >= 20)
         {
             for (int i = 0; i < VeryHighBattery.Length; i++)
             {
@@ -110,7 +117,7 @@ public class SwitchServers : MonoBehaviour
         }
 
 
-        if(LevelBtnUpdate1 >= 22)
+        if (LevelBtnUpdate1 >= 22)
         {
             for (int i = 0; i < VeryLowBattery.Length; i++)
             {
@@ -119,34 +126,34 @@ public class SwitchServers : MonoBehaviour
             }
         }
 
-        if(LevelBtnUpdate1 >= 24)
+        if (LevelBtnUpdate1 >= 24)
         {
             for (int i = 0; i < LowBattery.Length; i++)
             {
                 LowBattery[i].SetActive(true);
-     
+
             }
         }
 
-        if(LevelBtnUpdate1 >= 26)
+        if (LevelBtnUpdate1 >= 26)
         {
             for (int i = 0; i < MeduimBattery.Length; i++)
             {
                 MeduimBattery[i].SetActive(true);
-     
+
             }
         }
 
-        if(LevelBtnUpdate1 >= 28)
+        if (LevelBtnUpdate1 >= 28)
         {
             for (int i = 0; i < HighBattery.Length; i++)
             {
                 HighBattery[i].SetActive(true);
-     
+
             }
         }
 
-        if(LevelBtnUpdate1 >= 30)
+        if (LevelBtnUpdate1 >= 30)
         {
             for (int i = 0; i < VeryHighBattery.Length; i++)
             {
@@ -154,9 +161,8 @@ public class SwitchServers : MonoBehaviour
                 Server3.SetActive(true);
             }
         }
-        
-
     }
+
     public void UpdateBattery1()
     {
         
@@ -164,6 +170,7 @@ public class SwitchServers : MonoBehaviour
         if(LevelBtnUpdate1 <= 30)
         {
             LevelBtnUpdate1++;
+            UpdateBattery();
             PlayerPrefs.SetInt("LevelInt", LevelBtnUpdate1);
             LevelText.text = "Level " + LevelBtnUpdate1;
         }

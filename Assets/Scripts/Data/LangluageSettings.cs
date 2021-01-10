@@ -17,5 +17,6 @@ public class LangluageSettings: ScriptableObject
     public string Table;
     public string Bed;
     public string Computer;
+    public string Shelf;
     public string Update;
 }

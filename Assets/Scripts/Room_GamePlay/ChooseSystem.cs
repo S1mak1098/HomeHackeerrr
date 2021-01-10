@@ -15,6 +15,10 @@ public class ChooseSystem : MonoBehaviour
     [SerializeField] private Button btnUpdate;
     [SerializeField] private Text btnUpdateText;
     [SerializeField] private Camera camera;
+
+
+
+
     public static RoomData RData = new RoomData();
 
     void Start()
@@ -24,6 +28,8 @@ public class ChooseSystem : MonoBehaviour
         Item.OnUpdateFailed += OnUpdateFailed;
         RData.SetLevelRoom(4);
         OffAllOutlines();
+
+
         
 
     }
@@ -43,12 +49,15 @@ public class ChooseSystem : MonoBehaviour
         {
             Debug.Log("Сработало!!!!");
             btnUpdate.gameObject.SetActive(true);
+            btnUpdate.onClick.RemoveAllListeners();
             btnUpdate.onClick.AddListener(item.item.LevelUP);
             btnUpdateText.text = LangManager.Instance.Lang.Update + " " + item.GetNameUI() + ":" + item.GetCurrentUpdatePrice();
         }
         else
         {
             btnUpdate.gameObject.SetActive(false);
+            OffAllOutlines();
+            Debug.Log("Что то пошло не так ://");
         }
 
 
