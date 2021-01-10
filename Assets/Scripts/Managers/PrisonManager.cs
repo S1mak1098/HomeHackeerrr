@@ -23,7 +23,7 @@ public class PrisonManager : MonoBehaviour
     {
         Timer.text = "" + (int)_time; // Присвоение к тексту 
         if(_time <= 0f) { // Истечение срока и его возобновление для последуйщих ЗАДЕРЖАНИЯХ  
-
+            Wasted = false;
             _time = 30f;
             prison.SetActive(false);
             Debug.Log("Вы выпущены!");
